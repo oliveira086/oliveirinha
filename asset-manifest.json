@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/oliveirinha/static/css/main.243ca3fa.css",
+    "main.js": "/oliveirinha/static/js/main.91ea3cd6.js",
+    "static/js/787.9649da70.chunk.js": "/oliveirinha/static/js/787.9649da70.chunk.js",
+    "static/media/oliveirinha.png": "/oliveirinha/static/media/oliveirinha.22fe9c57e602b1106bf5.png",
+    "index.html": "/oliveirinha/index.html",
+    "main.243ca3fa.css.map": "/oliveirinha/static/css/main.243ca3fa.css.map",
+    "main.91ea3cd6.js.map": "/oliveirinha/static/js/main.91ea3cd6.js.map",
+    "787.9649da70.chunk.js.map": "/oliveirinha/static/js/787.9649da70.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.243ca3fa.css",
+    "static/js/main.91ea3cd6.js"
+  ]
+}
