@@ -23,7 +23,7 @@ function Home () {
           <Button
             icon={<BsWhatsapp size={25} />}
             label='Clique aqui e adicione'
-            width='13vw'
+            width='13rem'
             primary
             heigth={'6vh'}
             onClick={() => whatsAppClick()}

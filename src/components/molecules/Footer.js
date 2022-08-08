@@ -11,7 +11,7 @@ function Footer () {
 
 const S = {
   Container: styled.section`
-    width: 99vw;
+    width: 100vw;
     height: 30vh;
     background-color: var(--color-neutral-dark);
   `
