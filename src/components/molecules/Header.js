@@ -35,7 +35,6 @@ function Header () {
             <AiOutlineMenu size={35}/>
           </S.DrawerMobileContainer>
           <S.ImageContainerMobile />
-
         </S.MobileContainer>
       </>
     );
@@ -45,7 +44,7 @@ function Header () {
 const S = {
   Container: styled.section`
     display: flex;
-    width: 99vw;
+    width: 100vw;
     height: 7vh;
     background-color: var(--color-neutral-darkest);
     justify-content: space-around;

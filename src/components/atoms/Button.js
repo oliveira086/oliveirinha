@@ -35,6 +35,7 @@ const S = {
     font-weight: var(--font-weight-medium);
     justify-content: center;
     align-items: center;
+    color: #000;
 
     svg {
       margin-right: 10px;

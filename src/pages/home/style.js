@@ -30,7 +30,7 @@ const S = {
 
     @media(max-width: 600px) {
       width: 90vw;
-      height: 95vw;
+      height: 33%;
       font-size: var(--font-size-xxxs);
       text-align: center;
 
@@ -40,7 +40,7 @@ const S = {
       }
 
       h2 {
-        font-size: var(--font-size-xxxxs);
+        font-size: '.3rem';
         font-weight: var(--font-weight-regular);
         color: var(--color-primary-lightest);
       }
