@@ -67,6 +67,11 @@ const bankCommands = [
   { name: 'pix', command: '!pix', description: 'Função para solicitar um saque de seu saldo. Exemplo de uso: !saque [valor] [senha]. Exemplo prático: !saque 10 12345678' },
 ];
 
+const bingoCommands = [
+  { name: 'bingo', command: '!bingo', description: 'Comando para iniciar o bingo. Exemplo de uso: !bingo [codigo do bingo] [valor do premio] [valor da cartela]. Exemplo prático: !bingo oitooito 10 1. ⚠️ O código do bingo tem que ter no máximo 8 caracteres e o valor do prêmio e debitado automaticamente da sua conta.' },
+  { name: 'cartela', command: '!cartela', description: 'Comando para solicitar uma cartela ao bot. Exemplo de uso: !cartela [codigo do bingo] [senha]. Exemplo prático: !cartela oitooito 12345678. ⚠️ Este comando deve ser mandado no privado do BOT, caso contrário, não será possível enviar uma cartela.' },
+  { name: 'peda', command: '!peda', description: 'Comando para chamar uma pedra. Exemplo de uso: !peda [codigo do bingo]. Exemplo prático: !peda oitooito' },
+];
 
 function Comands () {
   const [comands, setComands] = useState([]);
