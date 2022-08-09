@@ -5,7 +5,7 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 180vh;
+    height: auto;
     background-color: var(--color-neutral-darkest);
     /* justify-content: center; */
     align-items: center;
@@ -162,6 +162,27 @@ const S = {
     #bank-icon {
       font-size: var(--font-size-xxl);
     }
+  `,
+
+  NewsContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: auto;
+    background-color: #17244C;
+    justify-content: center;
+    border-radius: 6px;
+    padding: var(--spacing-xxxs) var(--spacing-xxxs);
+    margin-bottom: var(--spacing-sm);
+  `,
+
+  NewsItem: styled.div`
+    width: 75vw;
+    height: auto;
+    background-color: #E5EBFF;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-nano);
+    padding: var(--spacing-nano);
   `
 
 }
