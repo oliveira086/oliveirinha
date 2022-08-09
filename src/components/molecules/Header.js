@@ -11,11 +11,11 @@ function Header () {
   let dimensions = useWindowDimensions();
   let navigate = useNavigate();
 
-  if(dimensions.width > 600) {
+  if(dimensions.width >= 830) {
     return (
       <>
         <S.Container>
-          <S.ImageContainer />
+          <S.ImageContainer onClick={() => navigate('/')}/>
           <S.ButtonFunctionContainer>
             <Button width='var(--spacing-lg)' label="SUPORTE"/>
             <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
@@ -30,7 +30,7 @@ function Header () {
     );
   }
 
-  if(dimensions.width < 600) {
+  if(dimensions.width < 830) {
     return (
       <>
         <S.MobileContainer>
@@ -64,7 +64,7 @@ const S = {
   `,
 
   ButtonFunctionContainer: styled.div`
-    width: 20vw;
+    width: 45vw;
     height: 6vh;
   `,
 

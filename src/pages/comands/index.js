@@ -85,9 +85,6 @@ function Comands () {
     setComands([]);
     audioCommands.map(x => { allComands.push(x) });
     setComands(allComands);
-
-
-
   };
 
   const selectAllComands = () => {
