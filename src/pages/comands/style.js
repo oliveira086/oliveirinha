@@ -23,9 +23,10 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 15vw;
-    height: auto;
+    height: 80vh;
     padding-left: var(--spacing-xxxl);
     color: #fff;
+    justify-content: flex-start;
 
     @media(max-width: 600px) {
       width: 85vw;
@@ -45,15 +46,30 @@ const S = {
 
   MiddleContainer: styled.div`
     width: 60vw;
-    height: 20vh;
-    /* background-color: #ff0000; */
+    height: 80vh;
+    margin-top: var(--spacing-xxxs);
 
     @media(max-width: 600px) {
       display: flex;
+      flex-direction: column;
       width: 85vw;
       height: auto;
       padding-left: var(--spacing-quarck);
-      margin-top: var(--spacing-quarck);
+      padding-bottom: var(--spacing-nano);
+      margin: var(--spacing-quarck) var(--spacing-quarck);
+    }
+  `,
+
+  ComandsContainer: styled.div`
+    width: 60vw;
+    height: 60vh;
+    margin-top: var(--spacing-xxxs);
+    padding-left: var(--spacing-quarck);
+    padding-top: var(--spacing-quarck);
+    overflow-y: scroll;
+
+    @media(max-width: 600px) {
+      width: 80vw;
     }
   `
 

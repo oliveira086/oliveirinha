@@ -1,9 +1,16 @@
 import styled from "styled-components";
+import { forwardRef } from 'react';
 
 function Input (props) {
   return (
     <>
-      <S.Container width={props.width} height={props.height} placeholder={props.placeholder}>
+      <S.Container
+        width={props.width}
+        height={props.height}
+        placeholder={props.placeholder}
+        ref={props.ref}
+        onChange={props.onChange}
+      >
 
       </S.Container>
     </>
@@ -33,4 +40,5 @@ const S = {
   `
 }
 
-export default Input;
+export default forwardRef(Input);
+
