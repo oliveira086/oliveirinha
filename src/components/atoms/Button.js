@@ -54,6 +54,18 @@ const S = {
     color: var(--color-secondary);
     cursor: pointer;
     margin: 10px;
+
+    :hover {
+      border: solid 0.2rem #FFE099;
+      color: #FFE099;
+    }
+
+    @media(max-width: 600px) {
+      width: ${(props) => props.width || '45vw'};
+      height: 6vh;
+    }
+
+
   `,
 }
 

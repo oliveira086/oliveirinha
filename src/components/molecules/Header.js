@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import Button from "../atoms/Button";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
+
 import oliveirinhaProfilePic from '../../assets/images/oliveirinha.png';
 import useWindowDimensions from '../../utils/windowDimensions';
-import { AiOutlineMenu } from "react-icons/ai";
 
 
 function Header () {
   let dimensions = useWindowDimensions();
+  let navigate = useNavigate();
 
   if(dimensions.width > 600) {
     return (
@@ -15,7 +18,7 @@ function Header () {
           <S.ImageContainer />
           <S.ButtonFunctionContainer>
             <Button width='var(--spacing-lg)' label="SUPORTE"/>
-            <Button width='var(--spacing-lg)' label="COMANDOS"/>
+            <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
             <Button width='var(--spacing-lg)' label="GAMES"/>
           </S.ButtonFunctionContainer>
           <S.AuthButtonsContainer>
