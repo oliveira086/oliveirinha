@@ -109,7 +109,7 @@ function Home () {
         </S.BankFeaturesContainer>
 
         <S.SecondTextContainer>
-          <h1>Novidades e Atualizações</h1>
+          <h2>Novidades e Atualizações</h2>
         </S.SecondTextContainer>
 
         <S.NewsContainer>

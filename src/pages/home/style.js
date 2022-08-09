@@ -181,7 +181,7 @@ const S = {
 
     h2 {
       font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-regular);
+      font-weight: var(--font-weight-bold);
       color: #fff;
     }
 
@@ -202,7 +202,7 @@ const S = {
 
       h2 {
         font-size: var(--font-size-xs);
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-bold);
         color: #fff;
       }
     }
@@ -224,7 +224,7 @@ const S = {
 
       h2 {
         font-size: var(--font-size-lg);
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-bold);
         color: #fff;
       }
     }
