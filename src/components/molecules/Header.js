@@ -37,7 +37,7 @@ function Header () {
           <S.DrawerMobileContainer>
             <AiOutlineMenu size={35}/>
           </S.DrawerMobileContainer>
-          <S.ImageContainerMobile />
+          <S.ImageContainerMobile onClick={() => navigate('/comands')} />
         </S.MobileContainer>
       </>
     );

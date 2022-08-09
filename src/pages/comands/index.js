@@ -154,7 +154,7 @@ function Commands () {
 
 
   useEffect(() => {
-    setAllCommands ();
+    // setAllCommands ();
   }, []);
 
   let dimensions = useWindowDimensions();
