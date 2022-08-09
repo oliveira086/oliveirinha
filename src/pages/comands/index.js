@@ -56,10 +56,15 @@ const audioCommands = [
 
 const imageCommands = [
   { name: 'comedordecasada', command: '!comedordecasada @menção', description: 'Função que coloca a foto de perfil do contato mencionado dentro do selo oficial de comedores de casadas. Exemplo de uso: !comedordecasada @fulano' },
+  { name: 'sedutor', command: '!sedutor @menção', description: 'Função que coloca a foto de perfil do contato mencionado na manchete: Cuidado com os sedutores da internet. Exemplo de uso: !sedutor @fulano' },
+  { name: 'bolso', command: '!bolso @menção', description: 'Função de coloca a foto de perfil do contato mencionado nas mãos do Bolsonaro. Exemplo de uso: !bolso @fulano.' },
+  { name: 'tattoo', command: '!tattoo @menção', description: 'Função de coloca a foto de perfil do contato mencionado em uma conversa de negociação de uma tattoo. Exemplo de uso: !tattoo @fulano.' },
 ];
 
 const bankCommands = [
   { name: 'pix', command: '!pix', description: 'Função para realizar transferência de valores. Exemplo de uso: !pix [valor] [chave OliveiraPix] [senha]. Exemplo prático: !pix 129.90 5511983514937 senha123' },
+  { name: 'recarga', command: '!recarga', description: 'Função para solicitar a recarga do seu saldo. Exemplo de uso: !recarga [valor] [senha]. Exemplo prático: !recarga 10 12345678' },
+  { name: 'pix', command: '!pix', description: 'Função para solicitar um saque de seu saldo. Exemplo de uso: !saque [valor] [senha]. Exemplo prático: !saque 10 12345678' },
 ];
 
 
