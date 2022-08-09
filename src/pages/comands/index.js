@@ -4,9 +4,9 @@ import Button from '../../components/atoms/Button';
 import Input from '../../components/atoms/Input';
 import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
-import ComandItem from '../../components/atoms/ComandItem';
+import CommandItem from '../../components/atoms/CommandItem';
 
-let allComands = [];
+let allCommands = [];
 
 let category = ['vaiDarNamoro', 'smzinho', 'igorGuimaraes', 'danielBabigol', 'cleitonRasta', 'diogoDefante', 'tiringa', 'extras'];
 
@@ -68,88 +68,88 @@ const bankCommands = [
 ];
 
 const bingoCommands = [
-  { name: 'bingo', command: '!bingo', description: 'Comando para iniciar o bingo. Exemplo de uso: !bingo [codigo do bingo] [valor do premio] [valor da cartela]. Exemplo prático: !bingo oitooito 10 1. ⚠️ O código do bingo tem que ter no máximo 8 caracteres e o valor do prêmio e debitado automaticamente da sua conta.' },
-  { name: 'cartela', command: '!cartela', description: 'Comando para solicitar uma cartela ao bot. Exemplo de uso: !cartela [codigo do bingo] [senha]. Exemplo prático: !cartela oitooito 12345678. ⚠️ Este comando deve ser mandado no privado do BOT, caso contrário, não será possível enviar uma cartela.' },
-  { name: 'peda', command: '!peda', description: 'Comando para chamar uma pedra. Exemplo de uso: !peda [codigo do bingo]. Exemplo prático: !peda oitooito' },
+  { name: 'bingo', command: '!bingo', description: 'Commando para iniciar o bingo. Exemplo de uso: !bingo [codigo do bingo] [valor do premio] [valor da cartela]. Exemplo prático: !bingo oitooito 10 1. ⚠️ O código do bingo tem que ter no máximo 8 caracteres e o valor do prêmio e debitado automaticamente da sua conta.' },
+  { name: 'cartela', command: '!cartela', description: 'Commando para solicitar uma cartela ao bot. Exemplo de uso: !cartela [codigo do bingo] [senha]. Exemplo prático: !cartela oitooito 12345678. ⚠️ Este commando deve ser mandado no privado do BOT, caso contrário, não será possível enviar uma cartela.' },
+  { name: 'peda', command: '!peda', description: 'Commando para chamar uma pedra. Exemplo de uso: !peda [codigo do bingo]. Exemplo prático: !peda oitooito' },
 ];
 
-function Comands () {
-  const [comands, setComands] = useState([]);
+function Commands () {
+  const [commands, setCommands] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [allComandClicked, setAllComandClicked] = useState(true);
-  const [audioComandClicked, setAudioComandClicked] = useState(false);
-  const [imagemComandClicked, setImagemComandClicked] = useState(false);
-  const [bankComandClicked, setBankComandClicked] = useState(false);
+  const [allCommandClicked, setAllCommandClicked] = useState(true);
+  const [audioCommandClicked, setAudioCommandClicked] = useState(false);
+  const [imagemCommandClicked, setImagemCommandClicked] = useState(false);
+  const [bankCommandClicked, setBankCommandClicked] = useState(false);
 
   const setAllCommands = () => {
-    audioCommands.map(x => { allComands.push(x) });
-    imageCommands.map(x => { allComands.push(x) });
-    bankCommands.map(x => { allComands.push(x) });
-    setComands(allComands);
-  }
+    audioCommands.map(x => { allCommands.push(x) });
+    imageCommands.map(x => { allCommands.push(x) });
+    bankCommands.map(x => { allCommands.push(x) });
+    setCommands(allCommands);
+  };
 
   const search = (value) => {
     setSearchValue(value);
 
-    comands.map(commandsCallback => {
+    commands.map(commandsCallback => {
       const index = commandsCallback.name.startsWith(value.toLowerCase());
 
       if(index == true) {
-        setComands([commandsCallback]);
-      }
+        setCommands([commandsCallback]);
+      };
 
       if(value == '') {
         setAllCommands();
-      }
-    })
-  }
-
-  const selectAudioComands = () => {
-    allComands = [];
-    setAudioComandClicked(true);
-    setAllComandClicked(false);
-    setImagemComandClicked(false);
-    setBankComandClicked(false);
-
-    setComands([]);
-    audioCommands.map(x => { allComands.push(x) });
-    setComands(allComands);
+      };
+    });
   };
 
-  const selectAllComands = () => {
-    allComands = [];
-    setAudioComandClicked(false);
-    setAllComandClicked(true);
-    setImagemComandClicked(false);
-    setBankComandClicked(false);
+  const selectAudioCommands = () => {
+    allCommands = [];
+    setAudioCommandClicked(true);
+    setAllCommandClicked(false);
+    setImagemCommandClicked(false);
+    setBankCommandClicked(false);
+
+    setCommands([]);
+    audioCommands.map(x => { allCommands.push(x) });
+    setCommands(allCommands);
+  };
+
+  const selectAllCommands = () => {
+    allCommands = [];
+    setAudioCommandClicked(false);
+    setAllCommandClicked(true);
+    setImagemCommandClicked(false);
+    setBankCommandClicked(false);
 
     setAllCommands();
   };
 
-  const selectImagemComands = () => {
-    allComands = [];
+  const selectImagemCommands = () => {
+    allCommands = [];
 
-    setAudioComandClicked(false);
-    setAllComandClicked(false);
-    setImagemComandClicked(true);
-    setBankComandClicked(false);
+    setAudioCommandClicked(false);
+    setAllCommandClicked(false);
+    setImagemCommandClicked(true);
+    setBankCommandClicked(false);
 
-    setComands([]);
-    imageCommands.map(x => { allComands.push(x) });
-    setComands(allComands);
+    setCommands([]);
+    imageCommands.map(x => { allCommands.push(x) });
+    setCommands(allCommands);
   };
 
-  const selectBankComands = () => {
-    allComands = [];
+  const selectBankCommands = () => {
+    allCommands = [];
 
-    setAudioComandClicked(false);
-    setAllComandClicked(false);
-    setImagemComandClicked(false);
-    setBankComandClicked(true);
+    setAudioCommandClicked(false);
+    setAllCommandClicked(false);
+    setImagemCommandClicked(false);
+    setBankCommandClicked(true);
 
-    setComands([]);
-    bankCommands.map(x => { allComands.push(x) });
-    setComands(allComands);
+    setCommands([]);
+    bankCommands.map(x => { allCommands.push(x) });
+    setCommands(allCommands);
   };
 
 
@@ -163,12 +163,12 @@ function Comands () {
       <Header />
       <S.Container>
         <S.LeftMenuContainer>
-          <h1>Comandos</h1>
+          <h1>Commandos</h1>
           <S.ButtonsContainer>
-            <Button label="Todos os comandos" primary={allComandClicked} onClick={() => selectAllComands()}></Button>
-            <Button label="Audios" primary={audioComandClicked} onClick={() => selectAudioComands()}></Button>
-            <Button label="Imagens" primary={imagemComandClicked} onClick={() => selectImagemComands()}></Button>
-            <Button label="Banco" primary={bankComandClicked} onClick={() => selectBankComands()}></Button>
+            <Button label="Todos os commandos" primary={allCommandClicked} onClick={() => selectAllCommands()}></Button>
+            <Button label="Audios" primary={audioCommandClicked} onClick={() => selectAudioCommands()}></Button>
+            <Button label="Imagens" primary={imagemCommandClicked} onClick={() => selectImagemCommands()}></Button>
+            <Button label="Banco" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button>
           </S.ButtonsContainer>
 
         </S.LeftMenuContainer>
@@ -176,23 +176,23 @@ function Comands () {
           <Input
             width={dimensions.width > 600 ? '20rem' : '16rem'}
             heigth='var(--spacing-nano)'
-            placeholder="Pesquise o comando"
+            placeholder="Pesquise o commando"
             value={searchValue}
             onChange={e => search(e.target.value)}
           />
 
-          <S.ComandsContainer>
-            {comands.map(comandsCallback => {
+          <S.CommandsContainer>
+            {commands.map(commandsCallback => {
               return (
-                <ComandItem command={comandsCallback.command} description={comandsCallback.description}/>
+                <CommandItem command={commandsCallback.command} description={commandsCallback.description}/>
               )
             })}
 
-          </S.ComandsContainer>
+          </S.CommandsContainer>
         </S.MiddleContainer>
       </S.Container>
     </>
   )
 }
 
-export default Comands
+export default Commands
