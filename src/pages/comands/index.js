@@ -4,7 +4,7 @@ import Button from '../../components/atoms/Button';
 import Input from '../../components/atoms/Input';
 import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
-import CommandItem from '../../components/atoms/CommandItem';
+import ComandItem from '../../components/atoms/ComandItem';
 
 let allCommands = [];
 
@@ -182,11 +182,11 @@ function Commands () {
           />
 
           <S.CommandsContainer>
-            {commands.map(commandsCallback => {
+            {/* {commands.map(commandsCallback => {
               return (
-                <CommandItem command={commandsCallback.command} description={commandsCallback.description}/>
+                <ComandItem command={commandsCallback.command} description={commandsCallback.description}/>
               )
-            })}
+            })} */}
 
           </S.CommandsContainer>
         </S.MiddleContainer>
