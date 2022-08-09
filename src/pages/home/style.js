@@ -7,16 +7,14 @@ const S = {
     width: 100vw;
     height: auto;
     background-color: var(--color-neutral-darkest);
-    /* justify-content: center; */
     align-items: center;
 
     @media(max-width: 600px) {
       display: flex;
       flex-direction: column;
       width: 100vw;
-      height: 280vh;
+      height: auto;
       background-color: var(--color-neutral-darkest);
-      /* justify-content: center; */
       align-items: center;
     }
   `,
@@ -184,7 +182,6 @@ const S = {
     margin-bottom: var(--spacing-nano);
     padding: var(--spacing-nano);
   `
-
 }
 
 export default S;
