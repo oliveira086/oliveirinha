@@ -1,6 +1,6 @@
 const api = require('../config/api');
 
-module.exports = {
+export default {
   async getCommands (params) {
     try {
       const response = await api.get('/get-commands');
