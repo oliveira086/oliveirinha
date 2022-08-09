@@ -7,6 +7,7 @@ import Comands from './pages/comands';
 export default function Router() {
   return (
     <BrowserRouter>
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/comands' exact element={<Comands />} />
