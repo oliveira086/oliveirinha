@@ -6,7 +6,9 @@ import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
 import ComandItem from '../../components/atoms/ComandItem';
 
-const allComands = [
+const allComands = [];
+
+const audioCommands = [
   { name: 'rapaz', command: '!rapaz', description: 'Charopinho falando rapaz' },
   { name: 'cavalo', command: '!cavalo', description: 'Voz grava falando CAVALO' },
   { name: 'ui', command: '!ui', description: 'UIIII' },
@@ -23,7 +25,6 @@ const allComands = [
   { name: 'soupequeno', command: '!soupequeno', description: 'Daniel relatando que é pequeno mas não é pedaço' },
   { name: 'tunumvaimorarai', command: '!tunumvaimorarai', description: 'Tu num vai morar ai! Disse Daniel ansioso pela saída de buruzin' },
   { name: 'agora', command: '!agora', description: 'Agora sou eu e você meu gostoso!' },
-
   { name: 'fidecachorra', command: '!fidecachorra', description: 'Smzinho dando range' },
   { name: 'porquemeudeus', command: '!porquemeudeus', description: 'Porquê meu deuuuus?' },
   { name: 'ocabala', command: '!ocabala', description: 'Ó o caba lá!' },
@@ -32,30 +33,42 @@ const allComands = [
   { name: 'seumeliante', command: '!seumeliante', description: 'Advogado paloma falando com um meliante!' },
   { name: 'bandindinho', command: '!bandindinho', description: 'Bandidinho desgraçado' },
   { name: 'bimbimbim', command: '!bimbimbim', description: 'kkkk bimbimbim vem chegando na boate!' },
+];
 
-
+const imageCommands = [
+  { name: 'comedordecasada', command: '!comedordecasada @menção', description: 'Função que coloca a foto de perfil do contato mencionado dentro do selo oficial de comedores de casadas. Exemplo de uso: !comedordecasada @fulano' },
 ]
+
+
 
 function Comands () {
   const [comands, setComands] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
+  const setAllCommands = () => {
+    audioCommands.map(x => { allComands.push(x) });
+    imageCommands.map(x => { allComands.push(x) });
+    setComands(allComands);
+  }
+
   const search = (value) => {
     setSearchValue(value);
 
-    comands.map(comandsCallback => {
-      if(comandsCallback.name.indexOf(value.toLowerCase()) > -1) {
-        setComands([comandsCallback]);
-      }
-    });
+    comands.map(commandsCallback => {
+      const index = commandsCallback.name.startsWith(value.toLowerCase());
 
-    if(value == '') {
-      setComands(allComands);
-    }
+      if(index == true) {
+        setComands([commandsCallback]);
+      }
+
+      if(value == '') {
+        setAllCommands();
+      }
+    })
   }
 
   useEffect(() => {
-    setComands(allComands);
+    setAllCommands ();
   }, []);
 
   let dimensions = useWindowDimensions();

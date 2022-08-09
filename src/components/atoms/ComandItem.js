@@ -20,7 +20,7 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 58vw;
-    height: 16vh;
+    height: auto;
     background-color: #333;
     margin-bottom: var(--spacing-nano);
     border-radius: 12px;
@@ -49,16 +49,17 @@ const S = {
     }
   `,
   DescriptionContainer: styled.div`
+    display: flex;
     width: 56vw;
-    height: 8vh;
+    height: auto;
     background-color: #464B4C;
     border-radius: 6px;
     padding-left: var(--spacing-nano);
-    padding-top: var(--spacing-nano);
+    align-items: center;
 
     span {
       color: #fff;
-      font-weight: var(--font-weight-regular);
+      font-weight: var(--font-weight-light);
     }
 
     @media(max-width: 600px) {
