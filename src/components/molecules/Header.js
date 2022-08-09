@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { useState } from "react";
 import Button from "../atoms/Button";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import oliveirinhaProfilePic from '../../assets/images/oliveirinha.png';
 import useWindowDimensions from '../../utils/windowDimensions';
@@ -10,6 +11,11 @@ import useWindowDimensions from '../../utils/windowDimensions';
 function Header () {
   let dimensions = useWindowDimensions();
   let navigate = useNavigate();
+  const [menu, setMenu] = useState(false);
+
+  const openMenu = () => {
+    setMenu(!menu);
+  }
 
   if(dimensions.width >= 830) {
     return (
@@ -33,10 +39,26 @@ function Header () {
   if(dimensions.width < 830) {
     return (
       <>
+        <S.DrawerMobileContainer state={menu == true? 'visible' : 'hidden'}>
+          <S.HeaderDrawerContainer>
+            <AiOutlineClose size={35} onClick={() => openMenu()}/>
+          </S.HeaderDrawerContainer>
+          <S.BodyDrawerContainer>
+            <Button width='var(--spacing-lg)' label="HOME" onClick={() => navigate('/')}/>
+            <Button width='var(--spacing-lg)' label="SUPORTE"/>
+            <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
+            <Button width='var(--spacing-lg)' label="GAMES"/>
+
+            <S.AuthButtonsMobileContainer>
+              <Button width={'var(--spacing-xl)'} label="LOGIN" primary/>
+              <Button width='var(--spacing-lg)' label="CADASTRO"/>
+            </S.AuthButtonsMobileContainer>
+
+          </S.BodyDrawerContainer>
+        </S.DrawerMobileContainer>
         <S.MobileContainer>
-          <S.DrawerMobileContainer>
-            <AiOutlineMenu size={35}/>
-          </S.DrawerMobileContainer>
+          <AiOutlineMenu size={35} onClick={() => openMenu()}/>
+
           <S.ImageContainerMobile onClick={() => navigate('/comands')} />
         </S.MobileContainer>
       </>
@@ -87,11 +109,39 @@ const S = {
 
   DrawerMobileContainer: styled.div`
     display: flex;
-    width: 6vh;
-    height: 6vh;
+    flex-direction: column;
+    position: absolute;
+    width: 90vw;
+    height: 100vh;
+    cursor: pointer;
+    background-color: rgb(35, 37, 38);
+    visibility: ${(props => props.state)};
+  `,
+
+  HeaderDrawerContainer: styled.div`
+    display: flex;
+    width: 90vw;
+    height: 7vh;
+    align-items: center;
+    background-color: var(--color-secondary);
+  `,
+
+  BodyDrawerContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 80vh;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+  `,
+
+  AuthButtonsMobileContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 30vh;
+    align-items: center;
+    justify-content: center;
   `,
 
   ImageContainerMobile: styled.div`
