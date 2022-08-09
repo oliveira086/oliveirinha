@@ -107,6 +107,7 @@ function Home () {
           Com o bot Oliveirinha, você poderá usar dinheiro real para diversas funcionalidades! Tais como, comprar cartela de bingo, transferências por pix e muito mais! Nunca foi tão fácil usar saldo real no WhatsApp, nos adicione agora e veja como funciona! 😄
           </span>
         </S.BankFeaturesContainer>
+
         <S.WhatsAppButtonContainer>
           <Button
             icon={<BsWhatsapp size={25} />}
@@ -124,13 +125,12 @@ function Home () {
 
         <S.NewsContainer>
           <S.NewsItem>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          </S.NewsItem>
-          <S.NewsItem>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          </S.NewsItem>
-          <S.NewsItem>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <span><b>Atualizações do BOT:</b></span><br></br>
+            <span>✅ 02/08 - Inicio da construção do black jack</span><br/>
+            <span>✅ 05/08 - Ajustado alguns bugs do bingo</span><br/>
+            <span>✅ 05/08 - Criado a funcionalidade de depósito</span><br/>
+            <span>✅ 05/08 - Criado a funcionalidade de saque</span><br/>
+            <span>✅ 08/08 - Criação do site com algumas funcionalidades</span><br/>
           </S.NewsItem>
 
         </S.NewsContainer>

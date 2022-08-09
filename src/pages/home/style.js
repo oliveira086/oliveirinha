@@ -103,6 +103,7 @@ const S = {
     border-radius: 10px;
     justify-content: space-between;
     color: #F2F8FA;
+    padding: var(--spacing-xxxs);
 
     @media(max-width: 1800px) {
       flex-direction: column;
@@ -155,11 +156,12 @@ const S = {
     #item-title {
       font-weight: var(--font-weight-bold);
       font-size: var(--font-size-xxs);
+      margin-bottom: var(--spacing-quarck);
     }
 
     #text-item {
       font-weight: var(--font-weight-light);
-      font-size: 12px;
+      font-size: 14px;
     }
   `,
 
@@ -239,8 +241,9 @@ const S = {
     border-radius: 10px;
     font-size: var(--font-size-sm);
 
-    @media(max-width: 600px) {
+    @media(max-width: 800px) {
       padding: var(--spacing-xxxs);
+      font-size: var(--font-size-xxxxs);
     }
 
     #bank-icon {
