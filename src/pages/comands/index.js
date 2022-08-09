@@ -11,6 +11,29 @@ const allComands = [
   { name: 'cavalo', command: '!cavalo', description: 'Voz grava falando CAVALO' },
   { name: 'ui', command: '!ui', description: 'UIIII' },
   { name: 'xiii', command: '!xiii', description: 'Uma voz falando Xiii' },
+  { name: 'elegosta', command: '!elegosta', description: 'Ele gooosta!' },
+  { name: 'okok', command: '!okok', description: 'Uma voz falando OK OK' },
+  { name: 'aimamae', command: '!aimamae', description: 'Ai ai mamããe' },
+  { name: 'queissomeufilho', command: '!queissomeufilho', description: 'Que isso meu filho calma' },
+  { name: 'tome', command: '!tome', description: 'Uma voz falando Tome!' },
+  { name: 'eissoai', command: '!eissoai', description: 'E isso ai galera do Reggae' },
+  { name: 'olhaapeda', command: '!olhaapeda', description: 'Olha a pedra' },
+  { name: 'sonacara', command: '!sonacara', description: 'Dô só na cara pra estragar o velório disse o Daniel para o reporter' },
+  { name: 'sotenhoregistro', command: '!sotenhoregistro', description: 'Eu sou que nem bujão!' },
+  { name: 'soupequeno', command: '!soupequeno', description: 'Daniel relatando que é pequeno mas não é pedaço' },
+  { name: 'tunumvaimorarai', command: '!tunumvaimorarai', description: 'Tu num vai morar ai! Disse Daniel ansioso pela saída de buruzin' },
+  { name: 'agora', command: '!agora', description: 'Agora sou eu e você meu gostoso!' },
+
+  { name: 'fidecachorra', command: '!fidecachorra', description: 'Smzinho dando range' },
+  { name: 'porquemeudeus', command: '!porquemeudeus', description: 'Porquê meu deuuuus?' },
+  { name: 'ocabala', command: '!ocabala', description: 'Ó o caba lá!' },
+  { name: 'alegria', command: '!alegria', description: 'Diogo defante falando ALEGRIA!' },
+  { name: 'amizade', command: '!amizade', description: 'Diogo defante falando AMIZADE!' },
+  { name: 'seumeliante', command: '!seumeliante', description: 'Advogado paloma falando com um meliante!' },
+  { name: 'bandindinho', command: '!bandindinho', description: 'Bandidinho desgraçado' },
+  { name: 'bimbimbim', command: '!bimbimbim', description: 'kkkk bimbimbim vem chegando na boate!' },
+
+
 ]
 
 function Comands () {
@@ -21,7 +44,7 @@ function Comands () {
     setSearchValue(value);
 
     comands.map(comandsCallback => {
-      if(comandsCallback.name.indexOf(value) > -1) {
+      if(comandsCallback.name.indexOf(value.toLowerCase()) > -1) {
         setComands([comandsCallback]);
       }
     });
