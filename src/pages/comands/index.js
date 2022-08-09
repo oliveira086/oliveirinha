@@ -6,7 +6,7 @@ import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
 import ComandItem from '../../components/atoms/ComandItem';
 
-const allComands = [];
+let allComands = [];
 
 const audioCommands = [
   { name: 'rapaz', command: '!rapaz', description: 'Charopinho falando rapaz' },
@@ -37,17 +37,25 @@ const audioCommands = [
 
 const imageCommands = [
   { name: 'comedordecasada', command: '!comedordecasada @menção', description: 'Função que coloca a foto de perfil do contato mencionado dentro do selo oficial de comedores de casadas. Exemplo de uso: !comedordecasada @fulano' },
-]
+];
 
+const bankCommands = [
+  { name: 'pix', command: '!pix', description: 'Função para realizar transferência de valores. Exemplo de uso: !pix [valor] [chave OliveiraPix] [senha]. Exemplo prático: !pix 129.90 5511983514937 senha123' },
+]
 
 
 function Comands () {
   const [comands, setComands] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [allComandClicked, setAllComandClicked] = useState(true);
+  const [audioComandClicked, setAudioComandClicked] = useState(false);
+  const [imagemComandClicked, setImagemComandClicked] = useState(false);
+  const [bankComandClicked, setBankComandClicked] = useState(false);
 
   const setAllCommands = () => {
     audioCommands.map(x => { allComands.push(x) });
     imageCommands.map(x => { allComands.push(x) });
+    bankCommands.map(x => { allComands.push(x) });
     setComands(allComands);
   }
 
@@ -67,6 +75,58 @@ function Comands () {
     })
   }
 
+  const selectAudioComands = () => {
+    allComands = [];
+    setAudioComandClicked(true);
+    setAllComandClicked(false);
+    setImagemComandClicked(false);
+    setBankComandClicked(false);
+
+    setComands([]);
+    audioCommands.map(x => { allComands.push(x) });
+    setComands(allComands);
+
+
+
+  };
+
+  const selectAllComands = () => {
+    allComands = [];
+    setAudioComandClicked(false);
+    setAllComandClicked(true);
+    setImagemComandClicked(false);
+    setBankComandClicked(false);
+
+    setAllCommands();
+  };
+
+  const selectImagemComands = () => {
+    allComands = [];
+
+    setAudioComandClicked(false);
+    setAllComandClicked(false);
+    setImagemComandClicked(true);
+    setBankComandClicked(false);
+
+    setComands([]);
+    imageCommands.map(x => { allComands.push(x) });
+    setComands(allComands);
+  };
+
+  const selectBankComands = () => {
+    allComands = [];
+
+    setAudioComandClicked(false);
+    setAllComandClicked(false);
+    setImagemComandClicked(false);
+    setBankComandClicked(true);
+
+    setComands([]);
+    bankCommands.map(x => { allComands.push(x) });
+    setComands(allComands);
+  };
+
+
   useEffect(() => {
     setAllCommands ();
   }, []);
@@ -79,10 +139,10 @@ function Comands () {
         <S.LeftMenuContainer>
           <h1>Comandos</h1>
           <S.ButtonsContainer>
-            <Button label="Todos os comandos"></Button>
-            <Button label="Audios"></Button>
-            <Button label="Imagens"></Button>
-            <Button label="Banco"></Button>
+            <Button label="Todos os comandos" primary={allComandClicked} onClick={() => selectAllComands()}></Button>
+            <Button label="Audios" primary={audioComandClicked} onClick={() => selectAudioComands()}></Button>
+            <Button label="Imagens" primary={imagemComandClicked} onClick={() => selectImagemComands()}></Button>
+            <Button label="Banco" primary={bankComandClicked} onClick={() => selectBankComands()}></Button>
           </S.ButtonsContainer>
 
         </S.LeftMenuContainer>

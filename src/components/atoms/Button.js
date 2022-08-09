@@ -41,6 +41,11 @@ const S = {
       margin-right: 10px;
     }
 
+    @media(max-width: 600px) {
+      width: ${(props) => props.width || '45vw'};
+      height: 6vh;
+    }
+
   `,
   ContainerSecondary: styled.button`
     width: ${(props) => props.width || '10vw'};
