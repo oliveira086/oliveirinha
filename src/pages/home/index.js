@@ -5,6 +5,7 @@ import Button from '../../components/atoms/Button';
 
 import { BsWhatsapp } from "react-icons/bs";
 import { BiTable, BiVolumeFull, BiSticker, BiImage, BiMoviePlay, BiMoney } from "react-icons/bi";
+import { Helmet } from 'react-helmet';
 
 
 function whatsAppClick () {
@@ -14,6 +15,9 @@ function whatsAppClick () {
 function Home () {
   return (
     <>
+      <Helmet>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+      </Helmet>
       <Header />
       <S.Container>
         <S.TextContainer>
