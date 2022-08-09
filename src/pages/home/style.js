@@ -167,6 +167,7 @@ const S = {
 
   SecondTextContainer: styled.div`
     display: flex;
+    flex-direction: column;
     width: 50vw;
     height: 10vw;
     color: var(--color-neutral-lighest);
@@ -175,6 +176,11 @@ const S = {
     margin-top: var(--spacing-xxxs);
     justify-content: center;
     align-items: center;
+
+    #separator {
+      width: 80vw;
+      border-top: 1px solid #fff;
+    }
 
     span {
       color: var(--color-secondary);
@@ -239,7 +245,7 @@ const S = {
     padding: var(--spacing-xxs);
     color: #fff;
     border-radius: 10px;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
 
     @media(max-width: 800px) {
       padding: var(--spacing-xxxs);
@@ -256,7 +262,7 @@ const S = {
     flex-direction: column;
     width: 80vw;
     height: auto;
-    background-color: #17244C;
+    background-color: #4D7AFF;
     justify-content: center;
     border-radius: 6px;
     padding: var(--spacing-xxxs) var(--spacing-xxxs);
@@ -266,8 +272,8 @@ const S = {
   NewsItem: styled.div`
     width: 75vw;
     height: auto;
-    background-color: #E5EBFF;
-    border-radius: 8px;
+    /* background-color: #E5EBFF; */
+    color: #fff;
     margin-bottom: var(--spacing-nano);
     padding: var(--spacing-nano);
   `

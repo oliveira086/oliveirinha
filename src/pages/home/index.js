@@ -120,10 +120,19 @@ function Home () {
         </S.WhatsAppButtonContainer>
 
         <S.SecondTextContainer>
+          <div id="separator"></div>
           <h2>Novidades e Atualizações</h2>
         </S.SecondTextContainer>
 
         <S.NewsContainer>
+          <S.NewsItem>
+            <span><b>Atualizações do BOT:</b></span><br></br>
+            <span>✅ 02/08 - Inicio da construção do black jack</span><br/>
+            <span>✅ 05/08 - Ajustado alguns bugs do bingo</span><br/>
+            <span>✅ 05/08 - Criado a funcionalidade de depósito</span><br/>
+            <span>✅ 05/08 - Criado a funcionalidade de saque</span><br/>
+            <span>✅ 08/08 - Criação do site com algumas funcionalidades</span><br/>
+          </S.NewsItem>
           <S.NewsItem>
             <span><b>Atualizações do BOT:</b></span><br></br>
             <span>✅ 02/08 - Inicio da construção do black jack</span><br/>
