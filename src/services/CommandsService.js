@@ -1,12 +1,13 @@
 const api = require('../config/api');
 
-export default {
-  async getCommands (params) {
-    try {
-      const response = await api.get('/get-commands');
-      return response.data;
-    } catch (error) {
-      console.log(error)
-    }
+const getCommands = async (params) => {
+  try {
+    const response = await api.get('/get-commands');
+    return response.data;
+  } catch (error) {
+    console.log(error)
   }
 }
+
+export { getCommands };
+
