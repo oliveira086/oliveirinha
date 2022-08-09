@@ -107,6 +107,16 @@ function Home () {
           Com o bot Oliveirinha, você poderá usar dinheiro real para diversas funcionalidades! Tais como, comprar cartela de bingo, transferências por pix e muito mais! Nunca foi tão fácil usar saldo real no WhatsApp, nos adicione agora e veja como funciona! 😄
           </span>
         </S.BankFeaturesContainer>
+        <S.WhatsAppButtonContainer>
+          <Button
+            icon={<BsWhatsapp size={25} />}
+            label='Clique aqui e adicione'
+            width='13rem'
+            primary
+            heigth={'6vh'}
+            onClick={() => whatsAppClick()}
+          />
+        </S.WhatsAppButtonContainer>
 
         <S.SecondTextContainer>
           <h2>Novidades e Atualizações</h2>

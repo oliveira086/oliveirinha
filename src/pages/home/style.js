@@ -237,6 +237,7 @@ const S = {
     padding: var(--spacing-xxs);
     color: #fff;
     border-radius: 10px;
+    font-size: var(--font-size-sm);
 
     @media(max-width: 600px) {
       padding: var(--spacing-xxxs);
