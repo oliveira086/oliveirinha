@@ -21,7 +21,9 @@ function Header () {
     return (
       <>
         <S.Container>
-          <S.ImageContainer onClick={() => navigate('/')}/>
+          <S.ImageContainer onClick={() => navigate('/')}>
+            {/* <S.Image src={oliveirinhaProfilePic}> </S.Image> */}
+          </S.ImageContainer>
           <S.ButtonFunctionContainer>
             <Button width='var(--spacing-lg)' label="SUPORTE"/>
             <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
@@ -58,7 +60,6 @@ function Header () {
         </S.DrawerMobileContainer>
         <S.MobileContainer>
           <AiOutlineMenu size={35} onClick={() => openMenu()}/>
-
           <S.ImageContainerMobile onClick={() => navigate('/comands')} />
         </S.MobileContainer>
       </>
@@ -77,12 +78,15 @@ const S = {
     padding-top: 1vh;
   `,
   ImageContainer: styled.div`
-    width: 4vw;
-    height: 6vh;
+    width: 8vw;
+    height: 4vh;
     background-image: url(${oliveirinhaProfilePic});
+    /* background-color: #999; */
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
+    margin-top: var(--spacing-quarck);
   `,
 
   ButtonFunctionContainer: styled.div`
@@ -145,13 +149,13 @@ const S = {
   `,
 
   ImageContainerMobile: styled.div`
-    width: 30vw;
-    height: 6vh;
+    width: 40vw;
+    height: 4vh;
     background-image: url(${oliveirinhaProfilePic});
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
-    margin-left: 70%;
+    margin-left: 40%;
   `
 
 }

@@ -101,7 +101,6 @@ function Commands () {
     });
   };
 
-
   useEffect(() => {
     getCommands().then(response => {
       setCommands(response.allCommands)

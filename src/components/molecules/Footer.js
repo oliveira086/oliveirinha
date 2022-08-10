@@ -67,15 +67,16 @@ const S = {
   `,
 
   ImageContainer: styled.div`
-    width: 5vw;
-    height: 5vw;
+    width: 16vw;
+    height: 8vh;
     background-image: url(${oliveirinhaProfilePic});
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 
     @media(max-width: 600px) {
-      width: 15vw;
-      height: 15vw;
+      width: 36vw;
+      height: 4vh;
+      margin-bottom: var(--spacing-quarck);
     }
   `
 }
