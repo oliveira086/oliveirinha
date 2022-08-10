@@ -10,14 +10,14 @@ function Footer () {
           <S.ImageContainer />
           <h3>OliveirinhaBOT</h3>
           <span>O bot perfeito pra a sua diversão.</span><br></br>
-          <a href=""><span>oliveirinhabot@gmail.com</span></a><br></br>
+          <span>oliveirinhabot@gmail.com</span><br></br>
           <span>© Oliveirinha BOT 2022 - All rights reserved.</span>
         </S.InformationContainer>
         <S.InformationContainer>
           <h3>Funcionalidades</h3>
-          <a href="">Suporte</a><br></br>
-          <a href="">Comandos</a><br></br>
-          <a href="">Games</a><br></br>
+          <a href="/suporte">Suporte</a><br></br>
+          <a href="/comands">Comandos</a><br></br>
+          <a href="/games">Games</a><br></br>
         </S.InformationContainer>
       </S.Container>
     </>
@@ -44,9 +44,18 @@ const S = {
     width: 25vw;
     height: 30vh;
     color: #fff;
+    padding-top: var(--spacing-nano);
 
     h3, span {
       line-height: 1%;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      :hover {
+        text-decoration: underline;
+      }
     }
 
     @media(max-width: 600px) {
