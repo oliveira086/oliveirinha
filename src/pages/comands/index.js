@@ -5,7 +5,7 @@ import Input from '../../components/atoms/Input';
 import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
 import ComandItem from '../../components/atoms/ComandItem';
-import { getCommands } from '../../services/CommandsService'
+import { getCommands, getAudioCommands, getImageCommands, getBankCommands} from '../../services/CommandsService'
 
 
 function Commands () {
@@ -30,9 +30,30 @@ function Commands () {
     }
 
     if(value == '') {
-      getCommands().then(response => {
-        setCommands(response.allCommands)
-      });
+      if(allCommandClicked) {
+        getCommands().then(response => {
+          setCommands(response.allCommands)
+        });
+      }
+
+      if(audioCommandClicked) {
+        getAudioCommands().then(response => {
+          setCommands(response.allCommands);
+        });
+      }
+
+      if(imagemCommandClicked) {
+        getImageCommands().then(response => {
+          setCommands(response.allCommands);
+        });
+      }
+
+      if(bankCommandClicked) {
+        getBankCommands().then(response => {
+          setCommands(response.allCommands);
+        });
+      }
+
     };
   };
 
@@ -41,6 +62,10 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(false);
     setBankCommandClicked(false);
+
+    getAudioCommands().then(response => {
+      setCommands(response.allCommands);
+    });
   };
 
   const selectAllCommands = () => {
@@ -48,6 +73,10 @@ function Commands () {
     setAllCommandClicked(true);
     setImagemCommandClicked(false);
     setBankCommandClicked(false);
+
+    getCommands().then(response => {
+      setCommands(response.allCommands)
+    });
   };
 
   const selectImagemCommands = () => {
@@ -55,6 +84,10 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(true);
     setBankCommandClicked(false);
+
+    getImageCommands().then(response => {
+      setCommands(response.allCommands);
+    });
   };
 
   const selectBankCommands = () => {
@@ -62,6 +95,10 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(false);
     setBankCommandClicked(true);
+
+    getBankCommands().then(response => {
+      setCommands(response.allCommands);
+    });
   };
 
 
