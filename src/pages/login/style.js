@@ -39,7 +39,7 @@ const S = {
       display: flex;
       flex-direction: column;
       width: 16vw;
-      height: 22vh;
+      height: 28vh;
       justify-content: space-between;
     }
 
@@ -76,8 +76,6 @@ const S = {
       }
     }
   `,
-
-
 
   RigthContainer: styled.div`
     width: 60vw;

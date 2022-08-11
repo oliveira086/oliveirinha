@@ -5,8 +5,19 @@ const AuthUser = async (params) => {
     const response = await api.post('/auth/login', params);
     return response.data;
   } catch (error) {
-    console.log(error)
+    return error.response.status;
   }
 }
 
-export { AuthUser }
+const RegisterUser = async (params) => {
+  try {
+    const response = await api.post('/auth/register', params);
+    return response.data;
+  } catch (error) {
+    return error.response.status;
+  }
+}
+
+
+
+export { AuthUser, RegisterUser }

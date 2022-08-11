@@ -4,10 +4,22 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Routes from './router';
 import GlobalStyle from './theme/variables';
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
     <GlobalStyle />
     <Routes />
   </React.StrictMode>

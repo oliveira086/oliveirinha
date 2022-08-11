@@ -12,7 +12,7 @@ function Button (props) {
     );
   } else {
     return (
-      <S.ContainerSecondary width={props.width} onClick={props.onClick}>
+      <S.ContainerSecondary width={props.width} heigth={props.heigth} onClick={props.onClick}>
         {props.icon}
         {props.label}
       </S.ContainerSecondary>
@@ -48,7 +48,7 @@ const S = {
   `,
   ContainerSecondary: styled.button`
     width: ${(props) => props.width || '10vw'};
-    height: 4vh;
+    height: ${(props) => props.heigth || '4vh'};
     background-color: rgba(0, 0, 0, 0) ;
     border-style: none;
     border-radius: 8px;

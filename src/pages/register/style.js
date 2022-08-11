@@ -31,7 +31,7 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 20vw;
-    height: 36vh;
+    height: 46vh;
     justify-content: space-around;
     color: #fff;
 
@@ -39,8 +39,9 @@ const S = {
       display: flex;
       flex-direction: column;
       width: 16vw;
-      height: 22vh;
+      height: 40vh;
       justify-content: space-between;
+      align-items: center;
     }
 
     @media(max-width: 800px) {
@@ -69,6 +70,7 @@ const S = {
   RecoveryPassword: styled.div`
     width: 90%;
     height: 5vh;
+    margin-top: var(--spacing-nano);
 
     span {
       :hover {

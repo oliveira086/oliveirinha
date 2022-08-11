@@ -1,10 +1,9 @@
-import Header from '../../components/molecules/Header';
-import Footer from '../../components/molecules/Footer';
-import S from './style';
-import Button from '../../components/atoms/Button';
-
 import { BsWhatsapp } from "react-icons/bs";
 import { BiTable, BiVolumeFull, BiSticker, BiImage, BiMoviePlay, BiMoney } from "react-icons/bi";
+
+import Header from '../../components/molecules/Header';
+import S from './style';
+import Button from '../../components/atoms/Button';
 
 
 function whatsAppClick () {

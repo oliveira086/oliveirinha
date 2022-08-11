@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 import Header from "../../components/molecules/Header";
 import Input from "../../components/atoms/Input";
@@ -23,13 +24,34 @@ function Login () {
     }
 
     let response = await AuthUser(object);
-    // console.log(response);
+    if(response !== 401) {
+      toast.success('Usuário autenticado', {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.warn('Usuário ou senha incorretos', {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
 
   return (
     <>
       <Header />
       <S.Container id="input-container">
+        <ToastContainer />
         <S.LeftContainer>
           <S.AuthContainer>
             <h1>Entrar</h1>
@@ -48,6 +70,9 @@ function Login () {
               <div id="container-inputs">
                 <Input width={'19rem'} placeholder="Telefone ex: 551199999999" value={phone} onChange={e => setPhone(e.target.value)}/>
                 <Input width={'19rem'} placeholder="Senha" password value={phrase} onChange={e => setPhrase(e.target.value)}/>
+                <S.RecoveryPassword>
+                  <span>Esqueceu a senha?</span>
+                </S.RecoveryPassword>
                 <Button width={'19.3rem'} label="Entrar" primary onClick={() => handleSubmit()} />
 
                 <span>Ainda não tem conta? <b onClick={() => navigate('/register')}>Cadastra-se</b></span>
