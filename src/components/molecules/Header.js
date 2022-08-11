@@ -29,7 +29,7 @@ function Header () {
           </S.ButtonFunctionContainer>
           <S.AuthButtonsContainer>
             <Button width={'var(--spacing-xl)'} label="LOGIN" primary onClick={() => navigate('/login')}/>
-            <Button width='var(--spacing-lg)' label="CADASTRO"/>
+            <Button width='var(--spacing-lg)' label="CADASTRO" onClick={() => navigate('/register')}/>
           </S.AuthButtonsContainer>
         </S.Container>
       </>
@@ -53,7 +53,7 @@ function Header () {
 
             <S.AuthButtonsMobileContainer>
               <Button width={'var(--spacing-xl)'} label="LOGIN" primary onClick={() => navigate('/login')}/>
-              <Button width='var(--spacing-lg)' label="CADASTRO"/>
+              <Button width='var(--spacing-lg)' label="CADASTRO" onClick={() => navigate('/register')}/>
             </S.AuthButtonsMobileContainer>
 
           </S.BodyDrawerContainer>

@@ -13,17 +13,29 @@ function Input (props) {
   return (
     <>
       <S.Container
+        width={props.width}
+        height={props.height}
         onFocus={() => setSelected(true)}
         onBlur={() => setSelected(false)}
         selected={selected}
       >
-        <S.InputContainer width={props.width}
-          height={props.height}
-          placeholder={props.placeholder}
-          ref={props.ref}
-          onChange={props.onChange}
-          type={showPass == true ? 'text' : 'password'}
-        />
+
+        { props.password == true ?
+          <S.InputContainer width={props.width}
+            height={props.height}
+            placeholder={props.placeholder}
+            ref={props.ref}
+            onChange={props.onChange}
+            type={ showPass == true ? 'text' : 'password'}
+          /> :
+          <S.InputContainer width={props.width}
+            height={props.height}
+            placeholder={props.placeholder}
+            ref={props.ref}
+            onChange={props.onChange}
+            type={'text'}
+          />
+        }
 
         { props.password ?
           <S.IconContainer onClick={() => setShowPass(!showPass)}>
@@ -44,10 +56,10 @@ function Input (props) {
 
 const S = {
   Container: styled.div`
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     width: ${(props) => props.width || '10vw'} ;
-    height: auto !important;
+    height: auto;
     background-color: rgba(0, 0, 0, 0) ;
     border-radius: 6px;
     border: ${ (props) => props.selected ? 'solid 0.2rem var(--color-primary-light);' : 'solid 0.2rem var(--color-secondary);' };

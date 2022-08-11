@@ -20,7 +20,7 @@ function Register () {
             <h1>Cadastre-se</h1>
             { dimensions.width < 800 ?
               (
-                <div>
+                <div id='container-inputs'>
                   <Input width={'18rem'} height={'2rem'} placeholder="Nome" />
                   <Input width={'18rem'} height={'2rem'} placeholder="Telefone ex: 551199999999" />
                   <Input width={'18rem'} height={'2rem'} placeholder="Email" />
@@ -30,7 +30,7 @@ function Register () {
                   <span>Já tem conta? <b onClick={() => navigate('/login')}>Entrar</b></span>
                 </div>
               ) :
-              <div>
+              <div id='container-inputs'>
                 <Input width={'18rem'} placeholder="Nome" />
                 <Input width={'18rem'} placeholder="Telefone ex: 551199999999" />
                 <Input width={'18rem'} placeholder="Email" />

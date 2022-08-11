@@ -35,7 +35,7 @@ const S = {
     justify-content: space-around;
     color: #fff;
 
-    div {
+    #container-inputs {
       display: flex;
       flex-direction: column;
       width: 16vw;
@@ -47,27 +47,36 @@ const S = {
       display: flex;
       flex-direction: column;
       width: 76vw;
-      height: 40vh;
+      height: 50vh;
       justify-content: space-between;
-
 
       span, b {
         font-size: 0.9rem;
         margin-top: var(--spacing-xxxs);
-        /* align-items: center; */
       }
 
-      div {
+      #container-inputs {
         display: flex;
         flex-direction: column;
         width: 74vw;
-        height: 30vh;
+        height: 100vh;
         justify-content: space-between ;
         align-items: center;
       }
-
     }
   `,
+
+  RecoveryPassword: styled.div`
+    width: 90%;
+    height: 5vh;
+
+    span {
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  `,
+
 
 
   RigthContainer: styled.div`
