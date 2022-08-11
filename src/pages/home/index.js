@@ -8,7 +8,7 @@ import { BiTable, BiVolumeFull, BiSticker, BiImage, BiMoviePlay, BiMoney } from 
 
 
 function whatsAppClick () {
-  window.location.href = 'https://wa.me/559988522522'
+  window.location.href = 'https://wa.me/message/SOVN6XUJF2B7B1'
 }
 
 function Home () {
@@ -53,7 +53,6 @@ function Home () {
             </S.FeatureItemTextContainer>
           </S.FeatureItem>
 
-
           <S.FeatureItem>
             <S.FeatureItemIconContainer>
               <BiSticker />
@@ -63,7 +62,6 @@ function Home () {
               <span id="text-item">Com o Oliveirinha você poderá criar figurinhas personalizadas e animadas para usar no seu WhatsApp.</span>
             </S.FeatureItemTextContainer>
           </S.FeatureItem>
-
 
           <S.FeatureItem>
             <S.FeatureItemIconContainer>
@@ -132,6 +130,7 @@ function Home () {
             <span>✅ 05/08 - Criado a funcionalidade de depósito</span><br/>
             <span>✅ 05/08 - Criado a funcionalidade de saque</span><br/>
             <span>✅ 08/08 - Criação do site com algumas funcionalidades</span><br/>
+            <span>✅ 09/08 - Criação da página de login</span><br/>
           </S.NewsItem>
         </S.NewsContainer>
 

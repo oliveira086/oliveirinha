@@ -1,42 +1,94 @@
+import { useState } from 'react';
+
 import styled from "styled-components";
 import { forwardRef } from 'react';
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+
 
 function Input (props) {
+
+  const [showPass, setShowPass] = useState(false);
+  const [selected, setSelected] = useState(false);
+
   return (
     <>
       <S.Container
-        width={props.width}
-        height={props.height}
-        placeholder={props.placeholder}
-        ref={props.ref}
-        onChange={props.onChange}
+        onFocus={() => setSelected(true)}
+        onBlur={() => setSelected(false)}
+        selected={selected}
       >
+        <S.InputContainer width={props.width}
+          height={props.height}
+          placeholder={props.placeholder}
+          ref={props.ref}
+          onChange={props.onChange}
+          type={showPass == true ? 'text' : 'password'}
+        />
 
+        { props.password ?
+          <S.IconContainer onClick={() => setShowPass(!showPass)}>
+            { showPass ?
+              <BsEyeSlash size={'26px'}/>
+              :
+              <BsEye size={'26px'} />
+            }
+          </S.IconContainer>
+          :
+          <>
+          </>
+        }
       </S.Container>
     </>
   )
 }
 
 const S = {
-  Container: styled.input`
-    width: ${(props) => props.width || '10vw'};
-    height: ${(props) => props.height || '4vh'};
+  Container: styled.div`
+    display: flex !important;
+    flex-direction: row !important;
+    width: ${(props) => props.width || '10vw'} ;
+    height: auto !important;
     background-color: rgba(0, 0, 0, 0) ;
     border-radius: 6px;
-    border: solid 0.2rem var(--color-secondary);
-    color: #fff;
-    padding-left: var(--spacing-nano);
+    border: ${ (props) => props.selected ? 'solid 0.2rem var(--color-primary-light);' : 'solid 0.2rem var(--color-secondary);' };
+    align-items: center;
+    transition: 0.5s all;
+    animation: Fade 0.6s linear forwards;
+  `,
 
-    :focus, input:focus {
-      outline: none;
-      border: solid 0.2rem #99B3FF;
+  IconContainer: styled.div`
+    display: flex;
+    width: 2vw !important;
+    height: 2vw !important;
+    align-items: center;
+    justify-content: center !important;
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+      display: flex;
+      width: 6vw !important;
+      height: 6vw !important;
+      align-items: center;
+      justify-content: center !important;
+      cursor: pointer;
+      margin-right: var(--spacing-quarck);
     }
+  `,
+  InputContainer: styled.input`
+    width: 80%;
+    height: ${(props) => props.height || '4vh'};
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    outline: none;
 
     ::placeholder {
       color: white;
       opacity: 1;
       font-family: var(--font-family-primary);
     }
+
+    color: #fff;
+    padding-left: var(--spacing-nano);
   `
 }
 

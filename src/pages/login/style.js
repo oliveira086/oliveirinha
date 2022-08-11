@@ -7,7 +7,6 @@ const S = {
     width: 100vw;
     height: 80vh;
     background-color: var(--color-neutral-darkest);
-    /* background-color: #999; */
   `,
   LeftContainer: styled.div`
     display: flex;
@@ -40,7 +39,7 @@ const S = {
       display: flex;
       flex-direction: column;
       width: 16vw;
-      height: 18vh;
+      height: 22vh;
       justify-content: space-between;
     }
 

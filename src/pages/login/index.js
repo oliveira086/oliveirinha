@@ -11,22 +11,22 @@ function Login () {
   return (
     <>
       <Header />
-      <S.Container>
+      <S.Container id="input-container">
         <S.LeftContainer>
           <S.AuthContainer>
             <h1>Entrar</h1>
             { dimensions.width < 800 ?
               (
                 <div>
-                  <Input width={'15rem'} placeholder="Telefone" />
-                  <Input width={'15rem'} placeholder="Senha" />
+                  <Input width={'15rem'} height={'2rem'} placeholder="Telefone" />
+                  <Input width={'15rem'} height={'2rem'} placeholder="Senha" password />
                   <Button width={'12.3rem'} label="Entrar" primary/>
                   <span>Ainda não tem conta? <b>Cadastra-se</b></span>
                 </div>
               ) :
               <div>
                 <Input width={'18rem'} placeholder="Telefone" />
-                <Input width={'18rem'} placeholder="Senha" />
+                <Input width={'18rem'} placeholder="Senha" password/>
                 <Button width={'19.3rem'} label="Entrar" primary/>
 
                 <span>Ainda não tem conta? <b>Cadastra-se</b></span>
