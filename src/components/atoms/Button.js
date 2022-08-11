@@ -30,7 +30,6 @@ const S = {
     border-style: none;
     border-radius: 8px;
     cursor: pointer;
-    margin: 10px;
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-medium);
     justify-content: center;
@@ -58,7 +57,6 @@ const S = {
     font-weight: var(--font-weight-medium);
     color: var(--color-secondary);
     cursor: pointer;
-    margin: 10px;
 
     :hover {
       border: solid 0.2rem #FFE099;

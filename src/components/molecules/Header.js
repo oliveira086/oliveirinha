@@ -21,16 +21,14 @@ function Header () {
     return (
       <>
         <S.Container>
-          <S.ImageContainer onClick={() => navigate('/')}>
-            {/* <S.Image src={oliveirinhaProfilePic}> </S.Image> */}
-          </S.ImageContainer>
+          <S.ImageContainer onClick={() => navigate('/')} />
           <S.ButtonFunctionContainer>
             <Button width='var(--spacing-lg)' label="SUPORTE"/>
             <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
             <Button width='var(--spacing-lg)' label="GAMES"/>
           </S.ButtonFunctionContainer>
           <S.AuthButtonsContainer>
-            <Button width={'var(--spacing-xl)'} label="LOGIN" primary/>
+            <Button width={'var(--spacing-xl)'} label="LOGIN" primary onClick={() => navigate('/login')}/>
             <Button width='var(--spacing-lg)' label="CADASTRO"/>
           </S.AuthButtonsContainer>
         </S.Container>
@@ -52,7 +50,7 @@ function Header () {
             <Button width='var(--spacing-lg)' label="GAMES"/>
 
             <S.AuthButtonsMobileContainer>
-              <Button width={'var(--spacing-xl)'} label="LOGIN" primary/>
+              <Button width={'var(--spacing-xl)'} label="LOGIN" primary onClick={() => navigate('/login')}/>
               <Button width='var(--spacing-lg)' label="CADASTRO"/>
             </S.AuthButtonsMobileContainer>
 
@@ -149,13 +147,18 @@ const S = {
   `,
 
   ImageContainerMobile: styled.div`
-    width: 40vw;
-    height: 4vh;
+    width: 46vw;
+    height: 6vh;
     background-image: url(${oliveirinhaProfilePic});
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
     margin-left: 40%;
+
+    @media (max-width: 600px) {
+      width: 44vw;
+      height: 5vh;
+    }
   `
 
 }
