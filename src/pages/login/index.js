@@ -21,15 +21,18 @@ function Login () {
                   <Input width={'15rem'} placeholder="Telefone" />
                   <Input width={'15rem'} placeholder="Senha" />
                   <Button width={'12.3rem'} label="Entrar" primary/>
+                  <span>Ainda não tem conta? <b>Cadastra-se</b></span>
                 </div>
               ) :
               <div>
                 <Input width={'18rem'} placeholder="Telefone" />
                 <Input width={'18rem'} placeholder="Senha" />
                 <Button width={'19.3rem'} label="Entrar" primary/>
+
+                <span>Ainda não tem conta? <b>Cadastra-se</b></span>
               </div>
             }
-            <span>Ainda não tem conta? <b>Cadastra-se</b></span>
+
           </S.AuthContainer>
 
         </S.LeftContainer>

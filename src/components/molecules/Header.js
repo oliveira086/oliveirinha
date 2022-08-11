@@ -44,10 +44,12 @@ function Header () {
             <AiOutlineClose size={35} onClick={() => openMenu()}/>
           </S.HeaderDrawerContainer>
           <S.BodyDrawerContainer>
-            <Button width='var(--spacing-lg)' label="HOME" onClick={() => navigate('/')}/>
-            <Button width='var(--spacing-lg)' label="SUPORTE"/>
-            <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
-            <Button width='var(--spacing-lg)' label="GAMES"/>
+            <S.ButtonFunctionContainer>
+              <Button width='var(--spacing-lg)' label="HOME" onClick={() => navigate('/')}/>
+              <Button width='var(--spacing-lg)' label="SUPORTE"/>
+              <Button width='var(--spacing-lg)' label="COMANDOS" onClick={() => navigate('/comands')}/>
+              <Button width='var(--spacing-lg)' label="GAMES"/>
+            </S.ButtonFunctionContainer>
 
             <S.AuthButtonsMobileContainer>
               <Button width={'var(--spacing-xl)'} label="LOGIN" primary onClick={() => navigate('/login')}/>
@@ -79,7 +81,6 @@ const S = {
     width: 8vw;
     height: 4vh;
     background-image: url(${oliveirinhaProfilePic});
-    /* background-color: #999; */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -88,15 +89,25 @@ const S = {
   `,
 
   ButtonFunctionContainer: styled.div`
-    width: 45vw;
+    display: flex;
+    width: 20vw;
     height: 6vh;
+    justify-content: space-around;
+    align-items: center;
+
+    @media (max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      width: 50vw;
+      height: 40vh;
+    }
   `,
 
   AuthButtonsContainer: styled.div`
     display: flex;
-    width: 40vw;
+    width: 16vw;
     height: 6vh;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
   `,
 
@@ -141,9 +152,10 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 90vw;
-    height: 30vh;
+    height: 20vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: var(--spacing-xs);
   `,
 
   ImageContainerMobile: styled.div`

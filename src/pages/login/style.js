@@ -51,9 +51,11 @@ const S = {
       height: 40vh;
       justify-content: space-between;
 
+
       span, b {
         font-size: 0.9rem;
         margin-top: var(--spacing-xxxs);
+        /* align-items: center; */
       }
 
       div {
