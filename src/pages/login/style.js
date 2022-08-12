@@ -65,7 +65,7 @@ const S = {
       }
     }
 
-    @media(max-width: 400px) {
+    @media(max-width: 600px) {
       display: flex;
       flex-direction: column;
       width: 76vw;
