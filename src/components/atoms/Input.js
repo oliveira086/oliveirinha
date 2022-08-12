@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import InputMask from 'react-input-mask';
 import styled from "styled-components";
 import { forwardRef } from 'react';
 import { BsEye, BsEyeSlash } from "react-icons/bs";
@@ -9,6 +9,7 @@ function Input (props) {
 
   const [showPass, setShowPass] = useState(false);
   const [selected, setSelected] = useState(false);
+  console.log(props);
 
   return (
     <>
@@ -21,19 +22,20 @@ function Input (props) {
       >
 
         { props.password == true ?
-          <S.InputContainer width={props.width}
+          <InputMask id="input-mask" width={props.width}
             height={props.height}
             placeholder={props.placeholder}
             ref={props.ref}
             onChange={props.onChange}
             type={ showPass == true ? 'text' : 'password'}
           /> :
-          <S.InputContainer width={props.width}
+          <InputMask id="input-mask" width={props.width}
             height={props.height}
             placeholder={props.placeholder}
             ref={props.ref}
             onChange={props.onChange}
             type={'text'}
+            mask={props.phone == true ? '(+55) 99 999999999' : ''}
           />
         }
 
@@ -66,6 +68,23 @@ const S = {
     align-items: center;
     transition: 0.5s all;
     animation: Fade 0.6s linear forwards;
+
+    #input-mask {
+      width: 80%;
+      height: ${(props) => props.height || '4vh'};
+      background-color: rgba(0, 0, 0, 0);
+      border-style: none;
+      outline: none;
+
+      ::placeholder {
+        color: white;
+        opacity: 1;
+        font-family: var(--font-family-primary);
+      }
+
+      color: #fff;
+      padding-left: var(--spacing-nano);
+    }
   `,
 
   IconContainer: styled.div`

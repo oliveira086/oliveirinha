@@ -26,7 +26,7 @@ function Register () {
     if(phone.length > 11) {
       let object = {
         name: name,
-        user_token_id: phone,
+        user_token_id: phone.replace(/[^a-zA-Z0-9 ]/g, ""),
         email: email,
         phrase: phrase
       }
@@ -34,7 +34,7 @@ function Register () {
       let response = await RegisterUser(object);
 
       if(response == 401) {
-        toast.info('Usuário já cadastrado!', {
+        toast.info('Telefone ou email já cadastrado!', {
           position: "bottom-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -45,19 +45,6 @@ function Register () {
         });
       } else {
         navigate('/confirm-register');
-      }
-    }
-    else {
-      if(!phone.startsWith('55')) {
-        toast.info('Seu telefone é do Brasil?!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
       }
     }
   }
@@ -74,7 +61,7 @@ function Register () {
               (
                 <div id='container-inputs'>
                   <Input width={'18rem'} height={'2rem'} placeholder="Nome" onChange={e => setName(e.target.value)}/>
-                  <Input width={'18rem'} height={'2rem'} placeholder="Telefone ex: 551199999999" onChange={e => setPhone(e.target.value)}/>
+                  <Input width={'18rem'} height={'2rem'} phone={true} placeholder="Número do WhatsApp" onChange={e => setPhone(e.target.value)}/>
                   <Input width={'18rem'} height={'2rem'} placeholder="Email" onChange={e => setEmail(e.target.value)}/>
                   <Input width={'18rem'} height={'2rem'} placeholder="Senha" password onChange={e => setPhrase(e.target.value)}/>
                   <Button width={'12.3rem'} label="Cadastrar" primary onClick={() => handleSubmit()}/>
@@ -84,7 +71,7 @@ function Register () {
               ) :
               <div id='container-inputs'>
                 <Input width={'18rem'} placeholder="Nome" onChange={e => setName(e.target.value)}/>
-                <Input width={'18rem'} placeholder="Telefone ex: 551199999999" onChange={e => setPhone(e.target.value)} />
+                <Input width={'18rem'} phone={true} placeholder="Número do WhatsApp" onChange={e => setPhone(e.target.value)} />
                 <Input width={'18rem'} placeholder="Email" onChange={e => setEmail(e.target.value)} />
                 <Input width={'18rem'} placeholder="Senha" password onChange={e => setPhrase(e.target.value)}/>
                 <Button width={'19.3rem'} label="Cadastrar" primary onClick={() => handleSubmit()}/>
