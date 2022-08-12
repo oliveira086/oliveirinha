@@ -84,7 +84,6 @@ const S = {
         height: 50vh;
         justify-content: space-between ;
         align-items: center;
-        background-color: #999;
       }
     }
   `,

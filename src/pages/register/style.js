@@ -65,6 +65,28 @@ const S = {
         align-items: center;
       }
     }
+
+    @media(max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      width: 76vw;
+      height: 60vh;
+      justify-content: space-between;
+
+      span, b {
+        font-size: 0.9rem;
+        margin-top: var(--spacing-xxxs);
+      }
+
+      #container-inputs {
+        display: flex;
+        flex-direction: column;
+        width: 74vw;
+        height: 60vh;
+        justify-content: space-between ;
+        align-items: center;
+      }
+    }
   `,
 
   RecoveryPassword: styled.div`
