@@ -81,9 +81,10 @@ const S = {
         display: flex;
         flex-direction: column;
         width: 74vw;
-        height: 100vh;
+        height: 50vh;
         justify-content: space-between ;
         align-items: center;
+        background-color: #999;
       }
     }
   `,
