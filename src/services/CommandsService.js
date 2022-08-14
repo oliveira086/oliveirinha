@@ -36,5 +36,15 @@ const getBankCommands = async (params) => {
   }
 }
 
-export { getCommands, getAudioCommands, getImageCommands, getBankCommands };
+const getBingoCommands = async (params) => {
+  try {
+    const response = await api.get('/get-commands-bingo');
+    return response.data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export { getCommands, getAudioCommands, getImageCommands, getBankCommands, getBingoCommands };
 

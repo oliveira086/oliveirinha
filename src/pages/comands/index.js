@@ -5,7 +5,7 @@ import Input from '../../components/atoms/Input';
 import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
 import ComandItem from '../../components/atoms/ComandItem';
-import { getCommands, getAudioCommands, getImageCommands, getBankCommands} from '../../services/CommandsService'
+import { getCommands, getAudioCommands, getImageCommands, getBankCommands, getBingoCommands} from '../../services/CommandsService'
 
 
 function Commands () {
@@ -15,6 +15,7 @@ function Commands () {
   const [audioCommandClicked, setAudioCommandClicked] = useState(false);
   const [imagemCommandClicked, setImagemCommandClicked] = useState(false);
   const [bankCommandClicked, setBankCommandClicked] = useState(false);
+  const [BingoCommandClicked, setBingoCommandClicked] = useState(false);
 
   const search = (value) => {
     setSearchValue(value);
@@ -101,6 +102,20 @@ function Commands () {
     });
   };
 
+  const selectBingoCommands = () => {
+    setAudioCommandClicked(false);
+    setAllCommandClicked(false);
+    setImagemCommandClicked(false);
+    setBankCommandClicked(false);
+    setBingoCommandClicked(true);
+
+    getBingoCommands().then(response => {
+      setCommands(response.allCommands);
+    });
+
+  };
+
+
   useEffect(() => {
     getCommands().then(response => {
       setCommands(response.allCommands)
@@ -117,8 +132,11 @@ function Commands () {
           <S.ButtonsContainer>
             <Button label="Todos os commandos" primary={allCommandClicked} onClick={() => selectAllCommands()}></Button>
             <Button label="Audios" primary={audioCommandClicked} onClick={() => selectAudioCommands()}></Button>
-            <Button label="Imagens" primary={imagemCommandClicked} onClick={() => selectImagemCommands()}></Button>
             <Button label="Banco" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button>
+            <Button label="Bingo" primary={bankCommandClicked} onClick={() => selectBingoCommands()}></Button>
+            <Button label="Imagens" primary={imagemCommandClicked} onClick={() => selectImagemCommands()}></Button>
+            {/* <Button label="Músicas" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button> */}
+            {/* <Button label="Verficações" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button> */}
           </S.ButtonsContainer>
 
         </S.LeftMenuContainer>

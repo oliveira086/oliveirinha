@@ -48,7 +48,7 @@ function Home () {
             </S.FeatureItemIconContainer>
             <S.FeatureItemTextContainer>
               <span id="item-title">Audios</span>
-              <span id="text-item">Com o Oliveirinha você pode escolher diversos audios e enviar para seus amigos no WhatsApp.</span>
+              <span id="text-item">Com o Oliveirinha você pode escolher diversos audios e trecho de músicas e enviar para seus amigos no WhatsApp.</span>
             </S.FeatureItemTextContainer>
           </S.FeatureItem>
 
@@ -78,7 +78,7 @@ function Home () {
             </S.FeatureItemIconContainer>
             <S.FeatureItemTextContainer>
               <span id="item-title">Baixar videos</span>
-              <span id="text-item">Com o Oliveirinha você pode baixar videos do youtube.</span>
+              <span id="text-item">Com o Oliveirinha você pode baixar videos do youtube e instagram.</span>
             </S.FeatureItemTextContainer>
           </S.FeatureItem>
 
@@ -130,6 +130,10 @@ function Home () {
             <span>✅ 05/08 - Criado a funcionalidade de saque</span><br/>
             <span>✅ 08/08 - Criação do site com algumas funcionalidades</span><br/>
             <span>✅ 09/08 - Criação da página de login</span><br/>
+            <span>✅ 10/08 - Criação da página de cadastro</span><br/>
+            <span>✅ 11/08 - Inicio da criação do sistema de anúncios </span><br/>
+            <span>✅ 12/08 - Adição de novos comandos de músicas e criação do download de videos do instagram</span><br/>
+            <span>✅ 14/08 - Adição de uma nova montagem no menu imagens</span><br/>
           </S.NewsItem>
         </S.NewsContainer>
 
@@ -137,7 +141,5 @@ function Home () {
     </>
   )
 }
-
-
 
 export default Home;

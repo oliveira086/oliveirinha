@@ -36,11 +36,23 @@ const S = {
   `,
 
   ButtonsContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    justify-content: space-around;
+    margin-bottom: var(--spacing-nano);
+
     @media(max-width: 600px) {
       display: flex;
+      flex-direction: row;
       width: 90vw;
       height: auto;
       overflow-y: scroll;
+      justify-content: space-between ;
+
+      button {
+        margin-right: 10px;
+      }
     }
   `,
 
