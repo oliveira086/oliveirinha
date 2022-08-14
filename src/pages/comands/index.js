@@ -137,7 +137,7 @@ function Commands () {
             <Button label="Todos os commandos" primary={allCommandClicked} onClick={() => selectAllCommands()}></Button>
             <Button label="Audios" primary={audioCommandClicked} onClick={() => selectAudioCommands()}></Button>
             <Button label="Banco" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button>
-            <Button label="Bingo" primary={bankCommandClicked} onClick={() => selectBingoCommands()}></Button>
+            <Button label="Bingo" primary={BingoCommandClicked} onClick={() => selectBingoCommands()}></Button>
             <Button label="Imagens" primary={imagemCommandClicked} onClick={() => selectImagemCommands()}></Button>
             {/* <Button label="Músicas" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button> */}
             {/* <Button label="Verficações" primary={bankCommandClicked} onClick={() => selectBankCommands()}></Button> */}
