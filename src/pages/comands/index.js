@@ -63,6 +63,7 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(false);
     setBankCommandClicked(false);
+    setBingoCommandClicked(false);
 
     getAudioCommands().then(response => {
       setCommands(response.allCommands);
@@ -74,6 +75,7 @@ function Commands () {
     setAllCommandClicked(true);
     setImagemCommandClicked(false);
     setBankCommandClicked(false);
+    setBingoCommandClicked(false);
 
     getCommands().then(response => {
       setCommands(response.allCommands)
@@ -85,6 +87,7 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(true);
     setBankCommandClicked(false);
+    setBingoCommandClicked(false);
 
     getImageCommands().then(response => {
       setCommands(response.allCommands);
@@ -96,6 +99,7 @@ function Commands () {
     setAllCommandClicked(false);
     setImagemCommandClicked(false);
     setBankCommandClicked(true);
+    setBingoCommandClicked(false);
 
     getBankCommands().then(response => {
       setCommands(response.allCommands);
