@@ -263,6 +263,12 @@ const S = {
     height: 64vh;
     justify-content: space-between;
 
+    @media only screen and (max-width: 2000px) and (min-width: 800px)  {
+      width: 84vw;
+      height: 94vh;
+      justify-content: space-between;
+    }
+
     @media(max-width: 800px) {
       display: flex;
       height: 260vh;
@@ -286,6 +292,11 @@ const S = {
     border-radius: var(--border-radius-xxs);
     padding: var(--spacing-nano) 0 var(--spacing-nano) var(--spacing-nano);
 
+    @media only screen and (max-width: 2000px) and (min-width: 800px)  {
+      width: 26vw;
+      height: auto;
+    }
+
     @media(max-width: 800px) {
       width: 80vw;
       height: auto;
@@ -297,6 +308,12 @@ const S = {
     flex-direction: column;
     width: 22vw;
     height: 16vh;
+
+
+    @media only screen and (max-width: 2000px) and (min-width: 800px)  {
+      width: 26vw;
+      height: 26vh;
+    }
 
     #price-plan-value {
       font-size: var(--font-size-lg);
@@ -329,6 +346,12 @@ const S = {
     height: auto;
     margin-top: var(--spacing-xxxs);
 
+    @media only screen and (max-width: 2000px) and (min-width: 800px)  {
+      width: 26vw;
+      height: auto;
+      margin-bottom: var(--spacing-xxxs);
+    }
+
     span {
       display: flex;
       align-items: center;
@@ -340,6 +363,16 @@ const S = {
     width: 22vw;
     height: auto;
     margin-bottom: var(--spacing-quarck);
+
+    @media only screen and (max-width: 2000px) and (min-width: 800px)  {
+      #funtion-items-icon {
+        display: flex;
+        width: 8vw;
+        height: 10vw;
+        align-items: center;
+        margin-right: var(--spacing-quarck);
+      }
+    }
 
     #funtion-items-icon {
       display: flex;
