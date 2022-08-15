@@ -1,5 +1,6 @@
 import { BsWhatsapp } from "react-icons/bs";
 import { BiTable, BiVolumeFull, BiSticker, BiImage, BiMoviePlay, BiMoney } from "react-icons/bi";
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 
 import Header from '../../components/molecules/Header';
 import S from './style';
@@ -93,6 +94,76 @@ function Home () {
           </S.FeatureItem>
 
         </S.FeaturesContainer>
+
+        <S.SecondTextContainer>
+          <h2>Preços e Planos</h2>
+        </S.SecondTextContainer>
+        <S.PlansContainer>
+          <S.PlansItems background={'#C599FF'}>
+            <S.PlansHeader>
+              <p>Básico</p>
+              <span id="price-plan-value">Grátis</span>
+              <span id="text-description-plan">Plano gratuito para todos os usuários</span>
+            </S.PlansHeader>
+
+            <S.FunctionsPlans>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Criar figurinhas no privado do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Escolher os audios que o bot enviará</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Fazer montagem com o perfil dos seus amigos</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Criar e participar de partidas de bingo</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Baixar videos do Youtube e Instagram</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Realizar transferências dentro do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCloseCircle size={25} color={'#E54562'}/></div><span>Livre de anúncios</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCloseCircle size={25} color={'#E54562'}/></div><span>Criar figurinhas em grupo</span></S.FunctionsItems>
+            </S.FunctionsPlans>
+            <Button label="Cadastre-se" primary />
+          </S.PlansItems>
+
+          <S.PlansItems background={'#99B3FF'}>
+            <S.PlansHeader>
+              <p>Usuário - Premium</p>
+              <div id='plan-price'><span id="price-plan-value">R$ 3,99</span><span>/Mês</span></div>
+              <span>Plano premium para você arrasar com todas as funcionalidades do bot!</span>
+            </S.PlansHeader>
+
+            <S.FunctionsPlans>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Criar figurinhas no privado do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Escolher os audios que o bot enviará</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Fazer montagem com a foto de perfil dos seus amigos</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Criar e participar de partidas de bingo</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Baixar videos do Youtube e Instagram</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Realizar transferências dentro do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Livre de anúncios</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Criar figurinhas em grupo</span></S.FunctionsItems>
+            </S.FunctionsPlans>
+            <Button label="Comprar Plano" primary />
+          </S.PlansItems>
+
+          <S.PlansItems background={'#FFE099'}>
+            <S.PlansHeader>
+              <p>Grupo - Premium</p>
+              <div id='plan-price'><span id="price-plan-value">R$ 9,99</span><span>/Mês</span></div>
+              <span>Plano premium para garantir a diversão e ter todas as funcionalidades feitas para seu grupo!</span>
+            </S.PlansHeader>
+
+            <S.FunctionsPlans>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Criar figurinhas no privado do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Escolher os audios que o bot enviará</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Fazer montagem com a foto de perfil dos seus amigos</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'} /></div><span>Criar e participar de partidas de bingo</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Baixar videos do Youtube e Instagram</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Realizar transferências dentro do bot</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Livre de anúncios</span></S.FunctionsItems>
+              <S.FunctionsItems><div id="funtion-items-icon"><AiFillCheckCircle size={25} color={'#29CC78'}/></div><span>Criar figurinhas em grupo</span></S.FunctionsItems>
+            </S.FunctionsPlans>
+            <Button label="Comprar Plano" primary />
+          </S.PlansItems>
+
+
+
+
+
+        </S.PlansContainer>
 
         <S.SecondTextContainer>
           <h2>Economia Real dentro do Bot</h2>

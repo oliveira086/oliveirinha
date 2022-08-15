@@ -239,7 +239,7 @@ const S = {
   `,
 
   BankFeaturesContainer: styled.div`
-    width: 76vw;
+    width: 80vw;
     height: auto;
     background-color: #2E174C;
     padding: var(--spacing-xxs);
@@ -254,6 +254,114 @@ const S = {
 
     #bank-icon {
       font-size: var(--font-size-xxl);
+    }
+  `,
+
+  PlansContainer: styled.div`
+    display: flex;
+    width: 84vw;
+    height: 64vh;
+    justify-content: space-between;
+
+    @media(max-width: 800px) {
+      display: flex;
+      height: 260vh;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    @media only screen and (max-width: 600px) and (min-width: 400px)  {
+      height: 220vh;
+    }
+
+    @media only screen and (max-width: 400px) and (min-width: 300px)  {
+      height: 280vh;
+    }
+  `,
+
+  PlansItems: styled.div`
+    width: 22vw;
+    height: 62vh;
+    background-color: ${(props) => props.background};
+    border-radius: var(--border-radius-xxs);
+    padding: var(--spacing-nano) 0 var(--spacing-nano) var(--spacing-nano);
+
+    @media(max-width: 800px) {
+      width: 80vw;
+      height: auto;
+    }
+  `,
+
+  PlansHeader: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    height: 16vh;
+
+    #price-plan-value {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+    }
+
+    #plan-price {
+      display: flex;
+      align-items: baseline;
+    }
+
+    @media(max-width: 800px) {
+      width: 80vw;
+      height: auto;
+
+      #price-plan-value {
+        font-size: var(--font-size-xxs);
+      }
+
+      #text-description-plan {
+        font-size: 12px;
+      }
+    }
+  `,
+
+  FunctionsPlans: styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    height: auto;
+    margin-top: var(--spacing-xxxs);
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+  `,
+
+  FunctionsItems: styled.div`
+    display: flex;
+    width: 22vw;
+    height: auto;
+    margin-bottom: var(--spacing-quarck);
+
+    #funtion-items-icon {
+      display: flex;
+      width: 2vw;
+      height: 2vw;
+      align-items: center;
+    }
+
+    @media(max-width: 800px) {
+      width: 80vw;
+      span {
+        font-size: 12px;
+      }
+
+      #funtion-items-icon {
+        display: flex;
+        width: 8vw;
+        height: 10vw;
+        align-items: center;
+        margin-right: var(--spacing-quarck);
+      }
+
     }
   `,
 
