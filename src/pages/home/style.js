@@ -270,11 +270,11 @@ const S = {
       justify-content: space-around;
     }
 
-    @media only screen and (max-width: 600px) and (min-width: 400px)  {
-      height: 220vh;
+    @media only screen and (max-width: 500px) and (min-width: 400px)  {
+      height: 260vh;
     }
 
-    @media only screen and (max-width: 400px) and (min-width: 300px)  {
+    @media only screen and (max-width: 399px) and (min-width: 300px)  {
       height: 320vh;
     }
   `,
