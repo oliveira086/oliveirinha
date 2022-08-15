@@ -275,7 +275,7 @@ const S = {
     }
 
     @media only screen and (max-width: 400px) and (min-width: 300px)  {
-      height: 280vh;
+      height: 320vh;
     }
   `,
 
@@ -317,7 +317,7 @@ const S = {
       }
 
       #text-description-plan {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   `,
@@ -351,7 +351,7 @@ const S = {
     @media(max-width: 800px) {
       width: 80vw;
       span {
-        font-size: 12px;
+        font-size: 16px;
       }
 
       #funtion-items-icon {
