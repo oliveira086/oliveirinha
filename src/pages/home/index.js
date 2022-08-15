@@ -122,7 +122,7 @@ function Home () {
           <S.PlansItems background={'#99B3FF'}>
             <S.PlansHeader>
               <p>Usuário - Premium</p>
-              <div id='plan-price'><span id="price-plan-value">R$ 3,99</span><span>/Mês</span></div>
+              <div id='plan-price'><span id="price-plan-value">R$ x,xx</span><span>/Mês</span></div>
               <span id="text-description-plan">Plano premium para você arrasar com todas as funcionalidades do bot!</span>
             </S.PlansHeader>
 
@@ -142,7 +142,7 @@ function Home () {
           <S.PlansItems background={'#FFE099'}>
             <S.PlansHeader>
               <p>Grupo - Premium</p>
-              <div id='plan-price'><span id="price-plan-value">R$ 9,99</span><span>/Mês</span></div>
+              <div id='plan-price'><span id="price-plan-value">R$ x,xx</span><span>/Mês</span></div>
               <span id="text-description-plan">Plano premium para garantir a diversão e ter todas as funcionalidades feitas para seu grupo!</span>
             </S.PlansHeader>
 
