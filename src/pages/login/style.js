@@ -4,7 +4,7 @@ import DadosBackground from '../../assets/images/dados.jpg';
 const S = {
   Container: styled.section`
     display: flex;
-    width: 100vw;
+    width: 99.9vw;
     height: 80vh;
     background-color: var(--color-neutral-darkest);
   `,

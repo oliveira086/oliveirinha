@@ -28,7 +28,7 @@ const S = {
   Container: styled.section`
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 99.9vw;
     height: auto;
     background-color: var(--color-neutral-dark);
     justify-content: space-around;

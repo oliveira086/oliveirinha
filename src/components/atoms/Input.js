@@ -9,7 +9,6 @@ function Input (props) {
 
   const [showPass, setShowPass] = useState(false);
   const [selected, setSelected] = useState(false);
-  console.log(props);
 
   return (
     <>
@@ -62,6 +61,7 @@ const S = {
     flex-direction: row;
     width: ${(props) => props.width || '10vw'} ;
     height: auto;
+    max-height: 5vh;
     background-color: rgba(0, 0, 0, 0) ;
     border-radius: 6px;
     border: ${ (props) => props.selected ? 'solid 0.2rem var(--color-primary-light);' : 'solid 0.2rem var(--color-secondary);' };

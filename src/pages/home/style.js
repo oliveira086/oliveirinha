@@ -265,7 +265,7 @@ const S = {
 
     @media only screen and (max-width: 2000px) and (min-width: 800px)  {
       width: 84vw;
-      height: 94vh;
+      height: 76vh;
       justify-content: space-between;
     }
 
@@ -307,12 +307,11 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 22vw;
-    height: 16vh;
-
+    height: 18vh;
 
     @media only screen and (max-width: 2000px) and (min-width: 800px)  {
       width: 26vw;
-      height: 26vh;
+      height: 18vh;
     }
 
     #price-plan-value {
@@ -413,10 +412,24 @@ const S = {
   NewsItem: styled.div`
     width: 75vw;
     height: auto;
-    /* background-color: #E5EBFF; */
     color: #fff;
     margin-bottom: var(--spacing-nano);
     padding: var(--spacing-nano);
+  `,
+
+  InviteContainer: styled.div`
+    display: flex;
+    width: 30vw;
+    height: auto;
+    justify-content: space-around ;
+
+    @media(max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      width: 90vw;
+      height: 16vh;
+      align-items: center;
+    }
   `
 }
 

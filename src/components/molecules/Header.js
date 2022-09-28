@@ -70,7 +70,7 @@ function Header () {
 const S = {
   Container: styled.section`
     display: flex;
-    width: 100vw;
+    width: 99.9vw;
     height: 7vh;
     background-color: var(--color-neutral-darkest);
     justify-content: space-around;

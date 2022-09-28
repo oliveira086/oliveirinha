@@ -15,6 +15,4 @@ const device = {
   desktopExtraLarge: `(min-width: ${screenSize.xxl}px)`
 }
 
-
-
 export { device };
