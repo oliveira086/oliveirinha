@@ -1,4 +1,4 @@
-import { css, createGlobalStyle } from 'styled-components';
+import { css, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     --color-neutral: #DDD;
     --color-neutral-dark: #0C0C0D;
     --color-neutral-darkest: #232526;
+    --color-neutral-darkest2: #1a1c1e;
 
     /* FEEDBACK */
     --color-feedback-success-dark: #00850F;
@@ -121,6 +122,6 @@ const GlobalStyle = createGlobalStyle`
     --line-height-distant: 150%;
     --line-height-super-distant: 200%;
   }
-`
+`;
 
 export default GlobalStyle;
