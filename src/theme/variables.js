@@ -96,6 +96,7 @@ const GlobalStyle = createGlobalStyle`
     --font-family-primary: 'Poppins', sans-serif;
 
     /* FONT SIZE */
+    --font-size-nano: .8rem;
     --font-size-xxxxs: 1.2rem;
     --font-size-xxxs: 1.4rem;
     --font-size-xxs: 1.6rem;
