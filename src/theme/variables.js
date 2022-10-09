@@ -36,6 +36,24 @@ const GlobalStyle = createGlobalStyle`
     /* FOCUSED */
     --color-focused: #F09905;
 
+    /* SOCIAL */
+    --blue-900: #1B1E28;
+    --blue-800: #1F212E;
+    --blue-700: #232633;
+    --blue-200: #3E476F;
+
+    --gray-900: #292B38;
+    --gray-700: #313544;
+    --gray-500: #4B505E;
+    --gray-100: #78798C;
+
+    --white: #D1D1D1;
+
+    --yellow: #ADAE62;
+
+    --pink: #CC2E5E;
+    --pink-hovered: #B5224E;
+
     /* ========== BORDER ========== */
 
     /* RADIUS */
@@ -121,6 +139,18 @@ const GlobalStyle = createGlobalStyle`
     --line-height-md: 120%;
     --line-height-distant: 150%;
     --line-height-super-distant: 200%;
+  }
+
+  @media(max-width: 1080px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media(max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
   }
 `;
 
