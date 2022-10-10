@@ -11,6 +11,7 @@ import { Upload } from '../../../components/molecules/Upload';
 import FileList from '../../../components/molecules/Upload/FileList';
 import { api } from '../../../services/api';
 import { Info } from 'phosphor-react';
+import { toast } from 'react-toastify';
 
 const createCustomAudioFormSchema = yup.object().shape({
   command: yup
@@ -32,7 +33,6 @@ const existingCommands = [
   "menubingo",
   "menuSecret",
   "tabelabrasileirao",
-  "register",
   "registerGroup",
   "secretRegister",
   "peda",
@@ -80,6 +80,9 @@ const existingCommands = [
   "shipar",
 ];
 
+const bearerToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1ODY5NDE0NzU0OSIsImlhdCI6MTY2NTQyNjgwNiwiZXhwIjoxNjY1NDMwNDA2fQ.SQz85sB1TJPDfAvqvW0bzLIaotk-CNcHB3_vrbLBxyk";
+
 export function UploadForm() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedAudio, setUploadedAudio] = useState(null);
@@ -126,54 +129,60 @@ export function UploadForm() {
   
   const {
     register,
+    setError,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm({
+    defaultValues: { command: '' },
     resolver: yupResolver(createCustomAudioFormSchema)
   });
 
   function onSubmit(info) {
-    // TODO validar que o comando não existe
-    if(existingCommands.includes(info.command)) {
-      console.log('comando já existe!');
-      return;
-    }
-
     if(uploadedAudio === null) {
       setAudioError(true);
       return;
     }
 
-    console.log(uploadedImage);
-
-    const data = {
-      command: info.command,
-      image: uploadedImage,
-      audio: uploadedAudio,
+    if(existingCommands.includes(info.command)) {
+      setError("command", {types: {uniqueCommand: 'Comando já existe'}});
+      return;
     }
 
-    console.log(data)
+    const formData = new FormData();
+    formData.append('files', uploadedImage);
+    formData.append('files', uploadedAudio);
 
-    api.post("/audios/upload-files", data)
+    api.post("/audios/upload-files", formData, {
+      headers: {
+        'Authorization': `Bearer ${bearerToken}`
+      },
+      params: {
+        command: info.command,
+      }
+    })
       .then((response) => {
-        console.log(response);
-        setUploadedImage({
-          ...uploadedImage,
-          uploaded: true,
-          url: "https://github.com/magaliais.png"
-        });
+        if(uploadedImage) {
+          setUploadedImage({
+            ...uploadedImage,
+            uploaded: true,
+            url: "https://github.com/magaliais.png"
+          });
+        }
         setUploadedAudio({
           ...uploadedAudio,
           uploaded: true,
         });
+        toast.success("Áudio registrado com sucesso!")
       })
       .catch((err) => {
-        console.log(err);
-        setUploadedImage({
-          ...uploadedImage,
-          error: true,
-        });
+        if(uploadedImage) {
+          setUploadedImage({
+            ...uploadedImage,
+            uploaded: true,
+            url: "https://github.com/magaliais.png"
+          });
+        }
         setUploadedAudio({
           ...uploadedAudio,
           error: true,
@@ -194,12 +203,13 @@ export function UploadForm() {
         />
       </div>
       {!!errors && <span className="error">{errors.command?.message}</span>}
+      {!!errors && <span className="error">{errors.command?.types?.uniqueCommand}</span>}
 
       <div className="inputGroup">
         <Upload
           onUpload={handleUploadAudio}
           title="Envio de áudio"
-          accept="audio/*"
+          accept={{'audio/mp3': ['.mp3']}}
         />
         {audioError && (
           <span className="error">Arquivo de áudio é obrigatório</span>
@@ -211,7 +221,7 @@ export function UploadForm() {
         <Upload
           onUpload={handleUploadImage}
           title="Envio de imagem"
-          accept="image/*"
+          accept={{'image/png': ['.png'], "image/jpg": ['jpg, jpeg']}}
         />
         {true && <FileList file={uploadedImage} setFile={setUploadedImage} />}
       </div>

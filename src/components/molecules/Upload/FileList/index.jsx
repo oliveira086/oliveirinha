@@ -14,7 +14,7 @@ function FileList({ file, setFile }) {
               <strong>{file?.name}</strong>
               <span>
                 {file?.readableSize}
-                {file && !file?.uploaded && (
+                {(file && !file?.uploaded) && (
                   <button onClick={() => {setFile(null)}}>Excluir</button>
                 )}
               </span>
@@ -31,10 +31,10 @@ function FileList({ file, setFile }) {
             </a>
           )}
 
-          {file?.uploaded && (
+          {(file && file?.uploaded) && (
             <CheckCircle size={24} color="#78e5d5" weight="fill" />
           )}
-          {file?.error && (
+          {(file && file?.error) && (
             <WarningCircle size={24} color="#e57878" weight="fill" />
           )}
         </li>
