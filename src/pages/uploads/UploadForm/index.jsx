@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { uniqueId } from 'lodash';
 import { filesize } from 'filesize';
 
+import audioWave from '../../../assets/images/audio-wave.png';
+
 import * as S from './style';
 
 import * as yup from 'yup';
@@ -81,7 +83,7 @@ const existingCommands = [
 ];
 
 const bearerToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1ODY5NDE0NzU0OSIsImlhdCI6MTY2NTQyNjgwNiwiZXhwIjoxNjY1NDMwNDA2fQ.SQz85sB1TJPDfAvqvW0bzLIaotk-CNcHB3_vrbLBxyk";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1ODY5NDE0NzU0OSIsImlhdCI6MTY2NTQyOTIzMiwiZXhwIjoxNjY1NDMyODMyfQ.ZDKCjOsi8cum2gGVJ-i6NlM7CAy1OZZvZcXFedxDk50";
 
 export function UploadForm() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -117,7 +119,7 @@ export function UploadForm() {
       id: uniqueId(),
       name: file.name,
       readableSize: filesize(file.size, { base: 2, standard: "jedec" }),
-      preview: URL.createObjectURL(file),
+      preview: audioWave,
       uploaded: false,
       error: false,
       url: null,
@@ -150,8 +152,8 @@ export function UploadForm() {
     }
 
     const formData = new FormData();
-    formData.append('files', uploadedImage);
-    formData.append('files', uploadedAudio);
+    formData.append('files', uploadedImage?.file);
+    formData.append('files', uploadedAudio?.file);
 
     api.post("/audios/upload-files", formData, {
       headers: {
