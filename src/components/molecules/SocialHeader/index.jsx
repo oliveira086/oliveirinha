@@ -1,4 +1,4 @@
-import { House, MusicNotesPlus } from 'phosphor-react';
+import { House, MusicNotes, MusicNotesPlus } from 'phosphor-react';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import useWindowDimensions from '../../../utils/windowDimensions';
@@ -20,7 +20,11 @@ export function SocialHeader() {
           <House weight="fill" size={24} />
           <p>Home</p>
         </NavLink>
-        <NavLink to="/upload">
+        <NavLink to="/audios">
+          <MusicNotes weight="fill" size={24} />
+          <p>Meus Áudios</p>
+        </NavLink>
+        <NavLink to="/uploads">
           <MusicNotesPlus weight="fill" size={24} />
           <p>Novo Áudio</p>
         </NavLink>

@@ -10,6 +10,7 @@ import Terms from "./pages/terms";
 import Dashboard from "./pages/dashboard";
 import Feed from "./pages/feed";
 import Upload from "./pages/uploads";
+import { ListAudios } from "./pages/ListAudios";
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
         <Route path="/home" exact element={<Dashboard />} />
         <Route path="/feed" exact element={<Feed />} />
         <Route path="/uploads" exact element={<Upload />} />
+        <Route path="/audios" exact element={<ListAudios />} />
       </Routes>
       <Footer />
     </BrowserRouter>
