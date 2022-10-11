@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Footer from "./components/molecules/Footer";
 import Home from "./pages/home";
 import Comands from "./pages/comands";
 import Login from "./pages/login";
@@ -25,7 +24,6 @@ export default function Router() {
         <Route path="/feed" exact element={<Feed />} />
         <Route path="/uploads" exact element={<Upload />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

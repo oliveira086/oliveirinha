@@ -4,9 +4,11 @@ import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { useState } from "react";
 
 import Header from '../../components/molecules/Header';
-import S from './style';
+import Footer from "../../components/molecules/Footer";
 import Button from '../../components/atoms/Button';
 import Input from "../../components/atoms/Input";
+
+import S from './style';
 
 function whatsAppClick () {
   window.location.href = 'https://wa.me/message/SOVN6XUJF2B7B1'
@@ -216,6 +218,7 @@ function Home () {
         </S.NewsContainer>
 
       </S.Container>
+      <Footer />
     </>
   )
 }

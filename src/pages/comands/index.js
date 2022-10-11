@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import Header from '../../components/molecules/Header';
+import Footer from "../../components/molecules/Footer";
 import Button from '../../components/atoms/Button';
 import Input from '../../components/atoms/Input';
-import S from './style';
 import useWindowDimensions from '../../utils/windowDimensions';
 import ComandItem from '../../components/atoms/ComandItem';
-import { getCommands, getAudioCommands, getImageCommands, getBankCommands, getBingoCommands} from '../../services/CommandsService'
 
+import { getCommands, getAudioCommands, getImageCommands, getBankCommands, getBingoCommands} from '../../services/CommandsService'
+import S from './style';
 
 function Commands () {
   const [commands, setCommands] = useState([]);
@@ -163,6 +164,7 @@ function Commands () {
           </S.ComandsContainer>
         </S.MiddleContainer>
       </S.Container>
+      <Footer/>
     </>
   )
 }
