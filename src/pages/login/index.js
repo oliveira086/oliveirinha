@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 import Header from "../../components/molecules/Header";
+import Footer from "../../components/molecules/Footer";
 import Input from "../../components/atoms/Input";
 import Button from "../../components/atoms/Button";
 import useWindowDimensions from '../../utils/windowDimensions';
@@ -34,6 +35,7 @@ function Login () {
         draggable: true,
         progress: undefined,
       });
+      navigate('/feed')
     } else {
       toast.warn('Usuário ou senha incorretos', {
         position: "top-right",
@@ -94,6 +96,7 @@ function Login () {
         }
 
       </S.Container>
+      <Footer />
     </>
   )
 }

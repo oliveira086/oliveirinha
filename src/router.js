@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Footer from "./components/molecules/Footer";
 import Home from "./pages/home";
 import Comands from "./pages/comands";
 import Login from "./pages/login";
@@ -27,7 +26,6 @@ export default function Router() {
         <Route path="/uploads" exact element={<Upload />} />
         <Route path="/audios" exact element={<ListAudios />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
