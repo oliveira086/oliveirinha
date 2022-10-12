@@ -7,8 +7,6 @@ const imagepost =
   "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fA%3D%3D&w=1000&q=80";
 
 function Post() {
-
-  
   return (
     <S.ContainerPost>
       <S.HeaderPost>
