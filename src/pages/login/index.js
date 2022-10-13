@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import Cookies from "universal-cookie";
 
 import Header from "../../components/molecules/Header";
 import Footer from "../../components/molecules/Footer";
@@ -17,6 +18,8 @@ function Login () {
   let navigate = useNavigate();
   const [phone, setPhone] = useState('');
   const [phrase, setPhrase] = useState('');
+
+  const cookies = new Cookies();
 
   const handleSubmit = async () => {
     let object = {
@@ -35,7 +38,12 @@ function Login () {
         draggable: true,
         progress: undefined,
       });
-      navigate('/feed')
+
+      cookies.set('@oliveirinha:bearerToken', response.body.token);
+      // cookies.set('@oliveirinha:name', 'Gabriel Albuquerque');
+      // cookies.set('@oliveirinha:email', 'gabriel.albuquerque@email.com');
+
+      navigate('/feed');
     } else {
       toast.warn('Usuário ou senha incorretos', {
         position: "top-right",

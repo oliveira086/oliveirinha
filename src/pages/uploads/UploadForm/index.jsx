@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import { uniqueId } from 'lodash';
 import { filesize } from 'filesize';
+import Cookies from 'universal-cookie';
 
 import audioWave from '../../../assets/images/audio-wave.png';
 
@@ -82,22 +83,13 @@ const existingCommands = [
   "shipar",
 ];
 
-const bearerToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1ODY5NDE0NzU0OSIsImlhdCI6MTY2NTQyOTIzMiwiZXhwIjoxNjY1NDMyODMyfQ.ZDKCjOsi8cum2gGVJ-i6NlM7CAy1OZZvZcXFedxDk50";
-
 export function UploadForm() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedAudio, setUploadedAudio] = useState(null);
   const [audioError, setAudioError] = useState(false);
 
-  // atualiza porcentagem do envio
-  // function updateFile(id, data) {
-  //   setUploadedFiles(uploadedFiles.map(uploadedFile => {
-  //     return id === uploadedFile.id ? { ...uploadedFile, ...data } : uploadedFile
-  //   }))
-  // }
+  const cookies = new Cookies();
 
-  // envia os arquivos
   function handleUploadImage(files) {
     const newUploadedFiles = files.map((file) => ({
       file,
@@ -133,7 +125,6 @@ export function UploadForm() {
     register,
     setError,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: { command: '' },
@@ -141,6 +132,14 @@ export function UploadForm() {
   });
 
   function onSubmit(info) {
+    const bearerToken = cookies.get('@oliveirinha:bearerToken');
+    console.log(bearerToken);
+
+    if(!bearerToken) {
+      toast.error('Você precisa estar logado para fazer o upload de um áudio')
+      return;
+    }
+
     if(uploadedAudio === null) {
       setAudioError(true);
       return;
