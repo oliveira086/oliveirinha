@@ -68,32 +68,36 @@ export function ListAudios() {
             <p>Áudios</p>
           </header>
 
-          <S.Audios>
-            <tr>
-              <th width="20%">Comando</th>
-              <th width="70%">Áudio</th>
-              <th width="10%"></th>
-            </tr>
-            {audios.map(audio => (
-              <tr key={audio.id}>
-                <td>
-                  <span>!{audio.command}</span>
-                </td>
-                <td>
-                  <audio controls>
-                    <source
-                      src={audio.link}
-                      type="audio/mp3"
-                    />
-                    Your browser does not support the audio tag.
-                  </audio>
-                </td>
-                <td>
-                  <span className='deleteButton'>Excluir</span>
-                </td>
+          {audios.length === 0 ? (
+            <p>Não há áudios para serem exibidos</p>
+          ) : (
+            <S.Audios>
+              <tr>
+                <th width="20%">Comando</th>
+                <th width="70%">Áudio</th>
+                <th width="10%"></th>
               </tr>
-            ))}
-          </S.Audios>
+              {audios.map(audio => (
+                <tr key={audio.id}>
+                  <td>
+                    <span>!{audio.command}</span>
+                  </td>
+                  <td>
+                    <audio controls>
+                      <source
+                        src={audio.link}
+                        type="audio/mp3"
+                      />
+                      Your browser does not support the audio tag.
+                    </audio>
+                  </td>
+                  <td>
+                    <span className='deleteButton'>Excluir</span>
+                  </td>
+                </tr>
+              ))}
+            </S.Audios>
+          )}
         </section>
       </S.Content>
     </S.Container>

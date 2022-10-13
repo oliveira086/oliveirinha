@@ -72,6 +72,10 @@ export const Audios = styled.table`
   table-layout: fixed;
   padding: 1.5rem 2rem;
 
+  p {
+    text-align: center;
+  }
+
   tr {
     th {
       color: var(--white);
