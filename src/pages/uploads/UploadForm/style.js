@@ -63,6 +63,15 @@ export const Container = styled.form`
     &:hover {
       background-color: var(--pink-hovered);
     }
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: var(--pink);
+      }
+    }
   }
 `;
 

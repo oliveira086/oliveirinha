@@ -15,13 +15,14 @@ import FileList from '../../../components/molecules/Upload/FileList';
 import { api } from '../../../services/api';
 import { Info } from 'phosphor-react';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const createCustomAudioFormSchema = yup.object().shape({
   command: yup
     .string()
     .required("Comando obrigatório")
     .max(8, "Comando deve ter no máximo 8 caracteres")
-    .matches(/^[a-z]+$/, "O comando deve ser composto somente por letras")
+    .matches(/^[a-z]+$/, "O comando deve ser composto somente por letras minúsculas")
 });
 
 const existingCommands = [
@@ -87,6 +88,9 @@ export function UploadForm() {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedAudio, setUploadedAudio] = useState(null);
   const [audioError, setAudioError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const cookies = new Cookies();
 
@@ -133,22 +137,23 @@ export function UploadForm() {
 
   function onSubmit(info) {
     const bearerToken = cookies.get('@oliveirinha:bearerToken');
-    console.log(bearerToken);
 
     if(!bearerToken) {
-      toast.error('Você precisa estar logado para fazer o upload de um áudio')
+      toast.error('Você precisa estar logado para fazer o upload de um áudio');
       return;
-    }
+    };
 
     if(uploadedAudio === null) {
       setAudioError(true);
       return;
-    }
+    };
 
     if(existingCommands.includes(info.command)) {
       setError("command", {types: {uniqueCommand: 'Comando já existe'}});
       return;
-    }
+    };
+
+    setIsLoading(true);
 
     const formData = new FormData();
     formData.append('files', uploadedImage?.file);
@@ -174,7 +179,9 @@ export function UploadForm() {
           ...uploadedAudio,
           uploaded: true,
         });
-        toast.success("Áudio registrado com sucesso!")
+        setIsLoading(false);
+        toast.success("Áudio registrado com sucesso!");
+        navigate('/audios')
       })
       .catch((err) => {
         if(uploadedImage) {
@@ -188,8 +195,9 @@ export function UploadForm() {
           ...uploadedAudio,
           error: true,
         });
+        setIsLoading(false);
       });
-  }
+    }
 
   return (
     <S.Container onSubmit={handleSubmit(onSubmit)}>
@@ -236,8 +244,8 @@ export function UploadForm() {
         </span>
       </S.Info>
 
-      <button type="submit" className="submitButton">
-        Enviar
+      <button type="submit" className="submitButton" disabled={isLoading}>
+        {isLoading ? 'Enviando...' : 'Enviar'}
       </button>
     </S.Container>
   );
