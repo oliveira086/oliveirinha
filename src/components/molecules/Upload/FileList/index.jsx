@@ -4,7 +4,6 @@ import * as S from './style';
 import { CheckCircle, Link, WarningCircle } from 'phosphor-react';
 
 function FileList({ file, setFile }) {
-  console.log(file)
   return (
     <S.Container>
         <li key={file?.id}>
