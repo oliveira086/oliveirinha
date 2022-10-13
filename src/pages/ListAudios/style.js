@@ -65,12 +65,43 @@ export const Content = styled.main`
   }
 `;
 
-export const Audios = styled.table`
+export const Audios = styled.div`
+  padding: 1.25rem 2rem;
+`;
+
+export const AddAudioButton = styled.button`
+  background-color: var(--pink);
   width: 100%;
-  border-collapse: separate;
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--pink-hovered);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--pink);
+    }
+  }
+`;
+
+export const AudiosList = styled.div`
+  width: 100%;
+  /* border-collapse: separate;
   border-spacing: 0 15px;
-  table-layout: fixed;
-  padding: 1.5rem 2rem;
+  table-layout: fixed; */
+  margin-top: 1.5rem;
 
   p {
     text-align: center;

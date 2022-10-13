@@ -54,6 +54,9 @@ const GlobalStyle = createGlobalStyle`
     --pink: #CC2E5E;
     --pink-hovered: #B5224E;
 
+    /* FIGMA */
+    --neutral-13: '#1B1D29';
+
     /* ========== BORDER ========== */
 
     /* RADIUS */

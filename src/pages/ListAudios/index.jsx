@@ -2,17 +2,21 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { SocialHeader } from '../../components/molecules/SocialHeader';
 import { api } from '../../services/api';
+import Cookies from "universal-cookie";
 
 import * as S from './style';
-
-const bearerToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU1MTE5ODM1MTQ5MzciLCJpYXQiOjE2NjU1MTMzNzMsImV4cCI6MTY2NTUxNjk3M30.sOd9qfs2C1WxRS6GGadwgnooDy0ELApDLsy6svZyhqo";
+import { Audio } from '../../components/molecules/Audio';
+import { useNavigate } from 'react-router-dom';
 
 export function ListAudios() {
   const [audios, setAudios] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserAudios() {
+      setIsLoading(true);
       /*
       * {
       *   body: [
@@ -27,6 +31,9 @@ export function ListAudios() {
       *   ]
       * }
       */
+     const cookies = new Cookies();
+     const bearerToken = cookies.get('@oliveirinha:bearerToken');
+
       api.post("/audios/find-user-audios", null, {
         headers: {
           "Authorization": `Bearer ${bearerToken}`,
@@ -34,9 +41,11 @@ export function ListAudios() {
       })
         .then(response => {
           setAudios(response.data.body);
+          setIsLoading(false);
         })
         .catch(err => {
           console.log(err);
+          setIsLoading(false);
         })
     };
 
@@ -51,6 +60,7 @@ export function ListAudios() {
     console.log(deleteIndex);
   }
 
+  console.log(audios)
   return (
     <S.Container>
       <SocialHeader />
@@ -68,36 +78,32 @@ export function ListAudios() {
             <p>Áudios</p>
           </header>
 
-          {audios.length === 0 ? (
-            <p>Não há áudios para serem exibidos</p>
-          ) : (
-            <S.Audios>
-              <tr>
-                <th width="20%">Comando</th>
-                <th width="70%">Áudio</th>
-                <th width="10%"></th>
-              </tr>
-              {audios.map(audio => (
-                <tr key={audio.id}>
-                  <td>
-                    <span>!{audio.command}</span>
-                  </td>
-                  <td>
-                    <audio controls>
-                      <source
-                        src={audio.link}
-                        type="audio/mp3"
-                      />
-                      Your browser does not support the audio tag.
-                    </audio>
-                  </td>
-                  <td>
-                    <span className='deleteButton'>Excluir</span>
-                  </td>
-                </tr>
-              ))}
-            </S.Audios>
-          )}
+          <S.Audios>
+            <S.AddAudioButton onClick={() => navigate('/uploads')}>
+              Novo Áudio
+            </S.AddAudioButton>
+            {audios.length === 0 ? (
+              isLoading ? (
+                <p>Carregando...</p>
+              ) : (
+                <p>Não há áudios para serem exibidos</p>
+              )
+            ) : (
+              <S.AudiosList>
+                {audios.map(audio => {
+                  return(
+                    <Audio 
+                      key={audio.id} 
+                      id={audio.id}
+                      command={audio.command} 
+                      audioSrc={audio.link}
+                      imageSrc={audio.sticker_link} 
+                    />
+                  )
+                })}
+                </S.AudiosList>
+              )}
+          </S.Audios>
         </section>
       </S.Content>
     </S.Container>
