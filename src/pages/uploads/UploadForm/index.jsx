@@ -1,0 +1,252 @@
+import React, { useState } from 'react'
+import { useForm } from "react-hook-form";
+import { uniqueId } from 'lodash';
+import { filesize } from 'filesize';
+import Cookies from 'universal-cookie';
+
+import audioWave from '../../../assets/images/audio-wave.png';
+
+import * as S from './style';
+
+import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Upload } from '../../../components/molecules/Upload';
+import FileList from '../../../components/molecules/Upload/FileList';
+import { api } from '../../../services/api';
+import { Info } from 'phosphor-react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
+const createCustomAudioFormSchema = yup.object().shape({
+  command: yup
+    .string()
+    .required("Comando obrigatório")
+    .max(8, "Comando deve ter no máximo 8 caracteres")
+    .matches(/^[a-z]+$/, "O comando deve ser composto somente por letras minúsculas")
+});
+
+const existingCommands = [
+  "me",
+  "register",
+  "sticker",
+  "premium",
+  "menuaudios",
+  "menuimagem",
+  "menuverify",
+  "menubank",
+  "menubingo",
+  "menuSecret",
+  "tabelabrasileirao",
+  "registerGroup",
+  "secretRegister",
+  "peda",
+  "limparPedas",
+  "cartela",
+  "bingo",
+  "pedas",
+  "batido",
+  "participantes",
+  "blackjack",
+  "ficha",
+  "youtube",
+  "instagram",
+  "atualizartabelabrasileirao",
+  "bolso",
+  "comedordecasada",
+  "sedutor",
+  "fatos",
+  "tattoo",
+  "morrepraga",
+  "urna",
+  "ednaldo",
+  "avisarGrupos",
+  "avisarGrupo",
+  "completarEnvio",
+  "userPremium",
+  "secret",
+  "secrets",
+  "secretResposta",
+  "verSecret",
+  "sticker",
+  "pix",
+  "verify",
+  "recarga",
+  "getRecargas",
+  "efetua",
+  "cancelar",
+  "saque",
+  "saques",
+  "confirmSaque",
+  "corno",
+  "egay",
+  "ecalvo",
+  "efake",
+  "shipar",
+];
+
+export function UploadForm() {
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [uploadedAudio, setUploadedAudio] = useState(null);
+  const [audioError, setAudioError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const cookies = new Cookies();
+
+  function handleUploadImage(files) {
+    const newUploadedFiles = files.map((file) => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size, { base: 2, standard: "jedec" }),
+      preview: URL.createObjectURL(file),
+      uploaded: false,
+      error: false,
+      url: null,
+    }));
+
+    setUploadedImage(newUploadedFiles[0]);
+  }
+  
+  function handleUploadAudio(files) {
+    const newUploadedAudio = files.map((file) => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size, { base: 2, standard: "jedec" }),
+      preview: audioWave,
+      uploaded: false,
+      error: false,
+      url: null,
+    }));
+
+    setUploadedAudio(newUploadedAudio[0]);
+    setAudioError(false);
+  }
+  
+  const {
+    register,
+    setError,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: { command: '' },
+    resolver: yupResolver(createCustomAudioFormSchema)
+  });
+
+  function onSubmit(info) {
+    const bearerToken = cookies.get('@oliveirinha:bearerToken');
+
+    if(!bearerToken) {
+      toast.error('Você precisa estar logado para fazer o upload de um áudio');
+      return;
+    };
+
+    if(uploadedAudio === null) {
+      setAudioError(true);
+      return;
+    };
+
+    if(existingCommands.includes(info.command)) {
+      setError("command", {types: {uniqueCommand: 'Comando já existe'}});
+      return;
+    };
+
+    setIsLoading(true);
+
+    const formData = new FormData();
+    formData.append('files', uploadedImage?.file);
+    formData.append('files', uploadedAudio?.file);
+
+    api.post("/audios/upload-files", formData, {
+      headers: {
+        'Authorization': `Bearer ${bearerToken}`
+      },
+      params: {
+        command: info.command,
+      }
+    })
+      .then((response) => {
+        if(uploadedImage) {
+          setUploadedImage({
+            ...uploadedImage,
+            uploaded: true,
+            url: "https://github.com/magaliais.png"
+          });
+        }
+        setUploadedAudio({
+          ...uploadedAudio,
+          uploaded: true,
+        });
+        setIsLoading(false);
+        toast.success("Áudio registrado com sucesso!");
+        navigate('/audios')
+      })
+      .catch((err) => {
+        if(uploadedImage) {
+          setUploadedImage({
+            ...uploadedImage,
+            uploaded: true,
+            url: "https://github.com/magaliais.png"
+          });
+        }
+        setUploadedAudio({
+          ...uploadedAudio,
+          error: true,
+        });
+        setIsLoading(false);
+      });
+    }
+
+  return (
+    <S.Container onSubmit={handleSubmit(onSubmit)}>
+      <div className="inputGroup command">
+        <label htmlFor="command">Comando</label>
+        <input
+          id="command"
+          type="text"
+          {...register("command")}
+          placeholder="Ex.: sortear"
+          // maxLength={8}
+        />
+      </div>
+      {!!errors && <span className="error">{errors.command?.message}</span>}
+      {!!errors && <span className="error">{errors.command?.types?.uniqueCommand}</span>}
+
+      <div className="inputGroup">
+        <Upload
+          onUpload={handleUploadAudio}
+          title="Envio de áudio"
+          accept={{'audio/mp3': ['.mp3']}}
+        />
+        {audioError && (
+          <span className="error">Arquivo de áudio é obrigatório</span>
+        )}
+        {true && <FileList file={uploadedAudio} setFile={setUploadedAudio} />}
+      </div>
+
+      <div className="inputGroup">
+        <Upload
+          onUpload={handleUploadImage}
+          title="Envio de imagem"
+          accept={{'image/png': ['.png'], "image/jpg": ['jpg, jpeg']}}
+        />
+        {true && <FileList file={uploadedImage} setFile={setUploadedImage} />}
+      </div>
+
+      <S.Info>
+        <i>
+          <Info color='var(--blue-200)' size={24}/>
+        </i>
+        <span>
+          A imagem será enviada em forma de figurinha ao mesmo tempo que o áudio
+        </span>
+      </S.Info>
+
+      <button type="submit" className="submitButton" disabled={isLoading}>
+        {isLoading ? 'Enviando...' : 'Enviar'}
+      </button>
+    </S.Container>
+  );
+}
