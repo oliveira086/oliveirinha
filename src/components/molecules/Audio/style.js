@@ -64,6 +64,7 @@ export const Container = styled.div`
       border: none;
       border-radius: 99px;
       margin-right: 0.75rem;
+      cursor: pointer;
     }
     
     .togglePlay {
@@ -75,6 +76,7 @@ export const Container = styled.div`
       background-color: var(--pink);
       border: none;
       border-radius: 99px;
+      cursor: pointer;
     }
   }
 `;
