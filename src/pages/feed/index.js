@@ -36,6 +36,7 @@ function Feed () {
           <S.MiddleContainer>
             <Post />
           </S.MiddleContainer>
+          <MenuFooter />
         </>
         :
         <>
