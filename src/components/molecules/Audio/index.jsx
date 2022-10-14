@@ -12,9 +12,10 @@ export function Audio({
   imageSrc,
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
   return (
     <S.Container pinkDetail={isPlaying} src={imageSrc}>
+      <div className={isPlaying ? 'pinkDetail active' : 'pinkDetail'}></div>
       <div className="infos">
         <div className="img" src={imageSrc}></div>
         <p>!{command}</p>

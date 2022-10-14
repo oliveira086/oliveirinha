@@ -15,18 +15,21 @@ export const Container = styled.div`
     margin-bottom: 1rem;
   }
 
-  ${props =>
-    props.pinkDetail &&
-    css`
-      &::before {
-        content: '';
-        height: 100%;
-        width: 5px;
-        background-color: var(--pink);
-        position: absolute;
-        left: 0;
-        border-radius: 8px 0 0 8px;
-    `}
+  .pinkDetail {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 5px;
+    background-color: var(--pink);
+    left: 0;
+    border-radius: 8px 0 0 8px;
+    transition: 0.2s ease-in-out;
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+
+  .pinkDetail.active {
+    transform: scaleY(1);
   }
 
   .infos {
