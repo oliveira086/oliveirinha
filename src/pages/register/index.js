@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Header from "../../components/molecules/Header";
+import Footer from "../../components/molecules/Footer";
 import Input from "../../components/atoms/Input";
 import Button from "../../components/atoms/Button";
 import useWindowDimensions from '../../utils/windowDimensions';
@@ -95,6 +96,7 @@ function Register () {
         }
 
       </S.Container>
+      <Footer />
     </>
   )
 }
