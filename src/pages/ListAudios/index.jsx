@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { SocialHeader } from '../../components/molecules/SocialHeader';
+import MobileSocialHeader from '../../components/molecules/MobileSocialHeader';
+import useWindowDimensions from '../../utils/windowDimensions';
 import { api } from '../../services/api';
 import Cookies from "universal-cookie";
 
@@ -11,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 export function ListAudios() {
   const [audios, setAudios] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const dimensions = useWindowDimensions();
 
   const navigate = useNavigate();
 
@@ -63,7 +66,12 @@ export function ListAudios() {
   console.log(audios)
   return (
     <S.Container>
-      <SocialHeader />
+
+      {dimensions.width < 800 ?
+        <MobileSocialHeader />
+      :
+        <SocialHeader />
+      }
 
       <S.Content>
         <section>
@@ -92,12 +100,12 @@ export function ListAudios() {
               <S.AudiosList>
                 {audios.map(audio => {
                   return(
-                    <Audio 
-                      key={audio.id} 
+                    <Audio
+                      key={audio.id}
                       id={audio.id}
-                      command={audio.command} 
+                      command={audio.command}
                       audioSrc={audio.link}
-                      imageSrc={audio.sticker_link} 
+                      imageSrc={audio.sticker_link}
                     />
                   )
                 })}

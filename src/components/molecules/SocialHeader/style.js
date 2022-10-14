@@ -20,7 +20,7 @@ export const Navbar = styled.nav`
   height: 100%;
   display: flex;
   gap: .5rem;
-  
+
   a {
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@ export const Navbar = styled.nav`
     font-size: 1rem;
     transition: all 0.2s ease;
     border-radius: 5px;
-  
+
     &:hover, &.active {
       background-color: var(--gray-700);
     }

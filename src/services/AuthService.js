@@ -18,6 +18,19 @@ const RegisterUser = async (params) => {
   }
 }
 
+const GetUserInformation = async (bearerToken) => {
+  try {
+    const response = await api.post('/auth/get-user-by-token', null, {
+      headers: {
+        "Authorization": `Bearer ${bearerToken}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.response.status;
+  }
+}
 
 
-export { AuthUser, RegisterUser }
+
+export { AuthUser, RegisterUser, GetUserInformation }
