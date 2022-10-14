@@ -1,4 +1,5 @@
 
+import MenuFooter from '../../components/molecules/MenuFooter';
 import MobileSocialHeader from '../../components/molecules/MobileSocialHeader';
 import Post from '../../components/molecules/Post';
 
@@ -19,8 +20,8 @@ function Feed () {
           </S.HeaderContainer>
           <S.MiddleContainer>
             <Post />
-
           </S.MiddleContainer>
+          <MenuFooter />
         </>
         :
         <>
