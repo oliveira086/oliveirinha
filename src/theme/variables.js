@@ -50,12 +50,46 @@ const GlobalStyle = createGlobalStyle`
     --white: #D1D1D1;
 
     --yellow: #ADAE62;
-
-    --pink: #CC2E5E;
+    
+    --pink: #CC2F5E;
     --pink-hovered: #B5224E;
 
-    /* FIGMA */
+    /* COLOR TOKENS */
+    --neutral-01: '#FFFFFF';
+    --neutral-02: '#F2F2F2';
+    --neutral-03: '#E1E1E8';
+    --neutral-04: '#CDCDC4';
+    --neutral-05: '#B9B9BF';
+    --neutral-06: '#A4A4B2';
+    --neutral-07: '#8D8D99';
+    --neutral-08: '#75757F';
+    --neutral-09: '#5E5E66';
+    --neutral-10: '#41414C';
+    --neutral-11: '#292B37';
+    --neutral-12: '#232733';
     --neutral-13: '#1B1D29';
+    --neutral-14: '#232326';
+    --neutral-15: '#0C0C0D';
+
+    --blue-01: '#F2F5FF';
+    --blue-02: '#D9E0FF';
+    --blue-03: '#A3ABCC';
+    --blue-04: '#B3C2FF';
+    --blue-05: '#8099FF';
+    --blue-06: '#5064B3';
+    --blue-07: '#142566';
+    --blue-08: '#050E33';
+    --blue-09: '#2F4ECC';
+
+    --pink-01: '#FFF2F6';
+    --pink-02: '#FFD9E4';
+    --pink-03: '#CCA3AF';
+    --pink-04: '#FFB3C9';
+    --pink-05: '#FF80A6';
+    --pink-05: '#B3506E';
+    --pink-06: '#66142D';
+    --pink-07: '#330513';
+    --pink-08: '#CC2F5E';
 
     /* ========== BORDER ========== */
 
