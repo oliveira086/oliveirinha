@@ -57,6 +57,7 @@ export function Audio({
     <>
       <ToastContainer />
       <S.Container pinkDetail={isPlaying} src={imageSrc}>
+        <div className={isPlaying ? 'pinkDetail active' : 'pinkDetail'}></div>
         <div className="infos">
           <div className="img" src={imageSrc}></div>
           <p>!{command}</p>
@@ -85,6 +86,5 @@ export function Audio({
         </div>
       </S.Container>
     </>
-
   );
 }
