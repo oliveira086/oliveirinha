@@ -3,11 +3,28 @@ import { FiPlusSquare } from 'react-icons/fi';
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react'
+import Cookies from "universal-cookie";
 
 import logo from "../../assets/images/oliveirinha.png";
+import { api } from '../../services/api';
 
-function MobileSocialHeader (params) {
+function MobileSocialHeader () {
   let navigate = useNavigate();
+  const [profile, setProfile] = useState('');
+
+  const cookies = new Cookies();
+  const bearerToken = cookies.get('@oliveirinha:bearerToken');
+
+  api.post('/auth/get-user-by-token', null, {
+    headers: {
+      "Authorization": `Bearer ${bearerToken}`,
+    },
+  }).then(response => {
+    setProfile(response.data.body.profile_picture);
+  })
+
+
   return (
     <S.ConainterHeader>
       <S.LogoContainer onClick={() => navigate('/feed')}>
@@ -19,7 +36,7 @@ function MobileSocialHeader (params) {
         <AiOutlineSearch size={26}/>
       </S.ButtonsContainer>
       <S.ProfileContainer>
-        <S.ProfilePicture profile={params.profile} />
+        <S.ProfilePicture profile={profile} />
       </S.ProfileContainer>
     </S.ConainterHeader>
   )

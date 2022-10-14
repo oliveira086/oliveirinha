@@ -26,7 +26,7 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 70vh;
+    height: 76vh;
     align-items: center;
     overflow-x: scroll;
   `

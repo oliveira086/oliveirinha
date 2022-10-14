@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { House, MusicNotesSimple, Sticker, ChatCircle, GameController } from "phosphor-react";
 
 function MenuFooter(){
+  let navigate = useNavigate();
   return(
     <S.ContainerFooter>
       <S.ContainerButtons>
@@ -11,7 +13,7 @@ function MenuFooter(){
           <span>Home</span>
         </S.FooterButton>
 
-         <S.FooterButton>
+         <S.FooterButton onClick={() => {navigate('/audios')}}>
           <MusicNotesSimple size={30} color="#fff" />
           <span>Áudios</span>
         </S.FooterButton>

@@ -25,7 +25,9 @@ function Uploads() {
             <header>
               <h1>Upload de Áudios</h1>
             </header>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non exercitationem modi quaerat fugit eaque voluptatum officiis et, aliquid quos impedit saepe ducimus velit commodi cumque magni. Et ut animi enim.</p>
+
+            <p>- Ao enviar um áudio, você tem a possibilidade de enviar gratuitamente uma figurinha. Para isto, basta enviar um arquivo de áudio e um arquivo de imagem nos respectivos campos.</p>
+            <p>- Você tem direito a 3 áudios gratuitos.</p>
           </section>
 
           <section>

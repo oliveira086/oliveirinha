@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Cookies from "universal-cookie";
 import MobileSocialHeader from '../../components/molecules/MobileSocialHeader';
+import MenuFooter from '../../components/molecules/MenuFooter';
 import Post from '../../components/molecules/Post';
 
 import useWindowDimensions from '../../utils/windowDimensions';

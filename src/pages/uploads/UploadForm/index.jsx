@@ -89,10 +89,26 @@ export function UploadForm() {
   const [uploadedAudio, setUploadedAudio] = useState(null);
   const [audioError, setAudioError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [audioCount, setAudioCount] = useState(0);
+
 
   const navigate = useNavigate();
 
   const cookies = new Cookies();
+
+  function getUserInformations () {
+    const bearerToken = cookies.get('@oliveirinha:bearerToken');
+    api.post('/auth/get-user-by-token', null, {
+      headers: {
+        "Authorization": `Bearer ${bearerToken}`,
+      },
+    }).then(response => {
+      setAudioCount(response.data.body.audios_count);
+    })
+  }
+
+  getUserInformations();
+
 
   function handleUploadImage(files) {
     const newUploadedFiles = files.map((file) => ({
@@ -108,7 +124,7 @@ export function UploadForm() {
 
     setUploadedImage(newUploadedFiles[0]);
   }
-  
+
   function handleUploadAudio(files) {
     const newUploadedAudio = files.map((file) => ({
       file,
@@ -124,7 +140,7 @@ export function UploadForm() {
     setUploadedAudio(newUploadedAudio[0]);
     setAudioError(false);
   }
-  
+
   const {
     register,
     setError,
@@ -135,7 +151,7 @@ export function UploadForm() {
     resolver: yupResolver(createCustomAudioFormSchema)
   });
 
-  function onSubmit(info) {
+  async function onSubmit(info) {
     const bearerToken = cookies.get('@oliveirinha:bearerToken');
 
     if(!bearerToken) {
@@ -159,45 +175,51 @@ export function UploadForm() {
     formData.append('files', uploadedImage?.file);
     formData.append('files', uploadedAudio?.file);
 
-    api.post("/audios/upload-files", formData, {
-      headers: {
-        'Authorization': `Bearer ${bearerToken}`
-      },
-      params: {
-        command: info.command,
-      }
-    })
-      .then((response) => {
-        if(uploadedImage) {
-          setUploadedImage({
-            ...uploadedImage,
-            uploaded: true,
-            url: "https://github.com/magaliais.png"
-          });
+    if(audioCount > 0) {
+      api.post("/audios/upload-files", formData, {
+        headers: {
+          'Authorization': `Bearer ${bearerToken}`
+        },
+        params: {
+          command: info.command,
         }
-        setUploadedAudio({
-          ...uploadedAudio,
-          uploaded: true,
-        });
-        setIsLoading(false);
-        toast.success("Áudio registrado com sucesso!");
-        navigate('/audios')
       })
-      .catch((err) => {
-        if(uploadedImage) {
-          setUploadedImage({
-            ...uploadedImage,
+        .then((response) => {
+          if(uploadedImage) {
+            setUploadedImage({
+              ...uploadedImage,
+              uploaded: true,
+              url: "https://github.com/magaliais.png"
+            });
+          }
+          setUploadedAudio({
+            ...uploadedAudio,
             uploaded: true,
-            url: "https://github.com/magaliais.png"
           });
-        }
-        setUploadedAudio({
-          ...uploadedAudio,
-          error: true,
+          setIsLoading(false);
+          toast.success("Áudio registrado com sucesso!");
+          navigate('/audios')
+        })
+        .catch((err) => {
+          if(uploadedImage) {
+            setUploadedImage({
+              ...uploadedImage,
+              uploaded: true,
+              url: "https://github.com/magaliais.png"
+            });
+          }
+          setUploadedAudio({
+            ...uploadedAudio,
+            error: true,
+          });
+          setIsLoading(false);
         });
-        setIsLoading(false);
-      });
+    } else {
+      setIsLoading(false);
+      toast.error('Você já preencheu todos os espaços! Adquira novos espaços e tente novamente!');
     }
+
+  }
 
   return (
     <S.Container onSubmit={handleSubmit(onSubmit)}>
