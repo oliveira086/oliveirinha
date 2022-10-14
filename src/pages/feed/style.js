@@ -18,7 +18,7 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 20vh;
+    height: 14vh;
     align-items: center;
     padding-top: 1rem;
   `,
@@ -26,9 +26,9 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 76vh;
-    background-color: #ff0000 ;
+    height: 70vh;
     align-items: center;
+    overflow-x: scroll;
   `
 }
 

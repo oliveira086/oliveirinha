@@ -12,7 +12,11 @@ export function Audio({
   imageSrc,
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
+  if(command.length > 10) {
+    command = command.substr(0, 10) + '...'
+  }
+
   return (
     <S.Container pinkDetail={isPlaying} src={imageSrc}>
       <div className="infos">

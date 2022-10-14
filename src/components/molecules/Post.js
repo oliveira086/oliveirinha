@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { HeartStraight, Chat, PaperPlaneTilt, DotsThreeOutline } from "phosphor-react";
 
-const profilePic = "https://cdn141.picsart.com/318274900660211.png";
+const profilePic = "https://s3.us-east-1.wasabisys.com/oliveirinha/profile-pictures/298267294_365816649089795_7023391953308276395_n.jpg";
 
 const imagepost =
   "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fA%3D%3D&w=1000&q=80";
@@ -13,24 +13,21 @@ function Post() {
         <S.Profile src={profilePic}>
           <div className="picture"></div>
           <div className="info">
-            <p className="name">Vitor</p>
-            <p className="user">@vitin</p>
+            <p className="name">Oliveirinha</p>
+            <p className="user">@oliveirinha</p>
           </div>
         </S.Profile>
-        
         <DotsThreeOutline size={24} color="#fff" weight="fill"/>
- 
       </S.HeaderPost>
-    
+
       <S.ImageContainer src={imagepost}>
         <div className="image"></div>
       </S.ImageContainer>
 
       <S.DescriptionContainer>
+        <span id="user">@oliveirinha </span>
         <span>
-          @darrell consectetur adipiscing elit duis tristique sollicitudin nibh
-          sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus
-          vitae congue
+          Sejam bem vindos a nossa comunidade, aqui o foco é a diversão! Aguardem novas atualizações
         </span>
       </S.DescriptionContainer>
 
@@ -42,16 +39,16 @@ function Post() {
             </button>
           </span>
 
-          <span className="likes_count">606</span>
+          <span className="likes_count">650</span>
 
           <span>
-            <button className="comments_button"> 
-                <Chat color="#A3ABCC" size={24} />  
+            <button className="comments_button">
+                <Chat color="#A3ABCC" size={24} />
             </button>
           </span>
 
-          
-          <span className="comments_count">403</span>
+
+          <span className="comments_count">0</span>
         </div>
 
         <span>
@@ -75,6 +72,8 @@ const S = {
     border-radius: 6px;
     justify-content: center;
     align-items: center;
+    min-height: 70vh;
+    margin-bottom: 2rem;
   `,
   HeaderPost: styled.div`
     width: 80vw;
@@ -88,11 +87,10 @@ const S = {
 
   ImageContainer: styled.div`
     width: 80vw;
-    height: auto;
+    height: 40vh;
     display: flex;
     align-items: center;
     gap: 1rem;
-    height: 100%;
 
     .image {
       height: 100%;
@@ -113,6 +111,10 @@ const S = {
     font-size: 16px;
     line-height: 22px;
 
+    #user {
+      color: #8099FF;
+    }
+
     span {
       color: #fff;
     }
@@ -123,7 +125,7 @@ const S = {
     justify-content: space-between;
     width: 80vw;
     height: 8vh;
-    
+
     .reactions_buttons {
       display: flex;
       align-items: center;

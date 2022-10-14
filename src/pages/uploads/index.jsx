@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import useWindowDimensions from "../../utils/windowDimensions";
+import MobileSocialHeader from '../../components/molecules/MobileSocialHeader';
+import useWindowDimensions from '../../utils/windowDimensions';
 
 import { SocialHeader } from "../../components/molecules/SocialHeader";
 import { UploadForm } from "./UploadForm";
@@ -13,7 +14,11 @@ function Uploads() {
   return (
     <>
       <S.Container>
-        <SocialHeader />
+        {dimensions.width < 800 ?
+          <MobileSocialHeader />
+        :
+          <SocialHeader />
+        }
 
         <S.Content>
           <section>

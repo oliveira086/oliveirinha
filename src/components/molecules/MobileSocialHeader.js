@@ -2,12 +2,15 @@ import styled from "styled-components";
 import { FiPlusSquare } from 'react-icons/fi';
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
+
 import logo from "../../assets/images/oliveirinha.png";
 
-function MobileSocialHeader () {
+function MobileSocialHeader (params) {
+  let navigate = useNavigate();
   return (
     <S.ConainterHeader>
-      <S.LogoContainer>
+      <S.LogoContainer onClick={() => navigate('/feed')}>
         <img src={logo} alt="Oliveirinha" className="logo" />
       </S.LogoContainer>
       <S.ButtonsContainer>
@@ -16,7 +19,7 @@ function MobileSocialHeader () {
         <AiOutlineSearch size={26}/>
       </S.ButtonsContainer>
       <S.ProfileContainer>
-        <S.ProfilePicture />
+        <S.ProfilePicture profile={params.profile} />
       </S.ProfileContainer>
     </S.ConainterHeader>
   )
@@ -64,7 +67,8 @@ const S = {
     width: 12vw;
     height: 12vw;
     border-radius: 100px;
-    background-color: #f0f;
+    background: ${props => `url(${props.profile}) no-repeat`};
+    background-size: contain;
   `
 }
 

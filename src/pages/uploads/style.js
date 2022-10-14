@@ -21,6 +21,7 @@ export const Content = styled.main`
     background-color: var(--blue-700);
     border-radius: 10px;
     height: fit-content;
+    min-width: 90vw;
 
     header {
       padding: 1.5rem 2rem;
