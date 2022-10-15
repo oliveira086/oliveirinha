@@ -1,6 +1,6 @@
 const axios = require('axios');
-// const url_da_api = 'https://oliveirinha-api.herokuapp.com';
 const url_da_api = 'http://177.153.59.47:8080/';
+// const url_da_api = 'http://localhost:8080/';
 
 axios.defaults.baseURL = `${url_da_api}`;
 

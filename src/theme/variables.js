@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     --white: #D1D1D1;
 
     --yellow: #ADAE62;
-
+    
     --pink: #CC2F5E;
     --pink-hovered: #B5224E;
 
