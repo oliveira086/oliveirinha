@@ -3,8 +3,10 @@ import { HeartStraight, Chat, PaperPlaneTilt, DotsThreeOutline } from "phosphor-
 
 const profilePic = "https://s3.us-east-1.wasabisys.com/oliveirinha/profile-pictures/298267294_365816649089795_7023391953308276395_n.jpg";
 
-const imagepost =
-  "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fA%3D%3D&w=1000&q=80";
+// const imagepost=
+  // "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fA%3D%3D&w=1000&q=80";
+
+const imagepost = "https://images.unsplash.com/photo-1484100356142-db6ab6244067?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1067&q=80" 
 
 function Post() {
   return (
@@ -33,20 +35,14 @@ function Post() {
 
       <S.ButtonsContainer>
         <div className="reactions_buttons">
-          <span>
-            <button className="like_button">
-                <HeartStraight color="var(--pink)" size={24} weight="fill" />
-            </button>
-          </span>
+          <button className="like_button">
+              <HeartStraight color="var(--pink)" size={24} weight="fill" />
+          </button>
 
           <span className="likes_count">650</span>
-
-          <span>
-            <button className="comments_button">
-                <Chat color="#A3ABCC" size={24} />
-            </button>
-          </span>
-
+          <button className="comments_button">
+              <Chat color="#A3ABCC" size={24} />
+          </button>
 
           <span className="comments_count">0</span>
         </div>
@@ -87,7 +83,7 @@ const S = {
 
   ImageContainer: styled.div`
     width: 80vw;
-    height: 40vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     gap: 1rem;

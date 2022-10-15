@@ -7,7 +7,6 @@ const S = {
     width: 100vw;
     height: 100vh;
     background-color: #292B37;
-    justify-content: center;
     align-items: center;
 
     h2 {
