@@ -9,6 +9,7 @@ import ConfirmRegister from './pages/confirmRegister';
 import Terms from './pages/terms';
 import Dashboard from './pages/dashboard';
 import Feed from './pages/feed';
+import { Profile } from './pages/profile';
 
 export default function Router() {
   return (
@@ -22,8 +23,8 @@ export default function Router() {
         <Route path='/terms' exact element={<Terms />} />
         <Route path='/home' exact element={<Dashboard />} />
         <Route path='/feed' exact element={<Feed />} />
+        <Route path='/profile' exact element={<Profile />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   )
 }
