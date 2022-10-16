@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.0",
+    "@radix-ui/react-tabs": "^1.0.0",
     "@hookform/resolvers": "^2.9.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
