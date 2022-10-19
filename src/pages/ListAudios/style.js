@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: calc(100vh - calc(80px - 1rem)); // 100vh - navbar height
   max-width: 100vw;
-  padding: 1rem;
+  padding: 2rem;
   background-color: var(--blue-900);
 `;
 
@@ -12,6 +15,8 @@ export const Content = styled.main`
   grid-template-columns: 1fr 2fr;
   grid-gap: 2.5rem;
   margin-top: 2.5rem;
+  min-width: 90vw;
+  max-width: 1120px;
 
   @media(max-width: 768px) {
     grid-template-columns: 1fr;
